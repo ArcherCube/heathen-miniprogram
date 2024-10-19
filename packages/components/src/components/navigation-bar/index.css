@@ -1,0 +1,19 @@
+.heathen-navigation-bar {
+  @apply text-36 relative flex w-full items-center justify-center font-medium;
+}
+
+.heathen-navigation-bar-buttons {
+  @apply absolute flex h-64 items-center justify-center overflow-hidden rounded-full;
+}
+
+.heathen-navigation-bar-buttons-split {
+  @apply bg-black-6 absolute h-40 w-1;
+}
+
+.heathen-navigation-bar-buttons-button {
+  @apply w-88 flex h-full flex-1 items-center justify-center p-0;
+}
+
+.heathen-navigation-bar-buttons-group {
+  @apply border-black-6 border border-solid bg-[rgba(255,255,255,.6)];
+}

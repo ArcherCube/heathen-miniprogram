@@ -1,0 +1,18 @@
+{
+  "miniprogramRoot": "./dist",
+  "projectname": "demo",
+  "description": "",
+  "appid": "",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "compileHotReLoad": false,
+    "postcss": false,
+    "minified": true,
+    "minifyWXML": true,
+    "minifyWXSS": true,
+    "bigPackageSizeSupport": true
+  },
+  "compileType": "miniprogram"
+}

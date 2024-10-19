@@ -1,0 +1,22 @@
+{
+  "name": "@heathen/icons",
+  "private": true,
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.ts",
+  "module": "index.ts",
+  "scripts": {
+    "lint": "eslint --ext .ts,.tsx  --max-warnings 0 \"./\" ",
+    "tsc": "tsc -p ./tsconfig.json --noEmit",
+    "stylelint": "stylelint \"src/**/*.css\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@icon-park/svg": "^1.4.2",
+    "@heathen/design-token": "workspace:*",
+    "@heathen/utils": "workspace:*"
+  }
+}

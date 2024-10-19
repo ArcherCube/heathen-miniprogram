@@ -1,0 +1,7 @@
+packages:
+  # 应用（小程序）
+  - "apps/*"
+  # 各类库
+  - "packages/*"
+  # 全局类型拓展
+  - "types/*"

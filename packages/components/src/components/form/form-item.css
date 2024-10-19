@@ -1,0 +1,97 @@
+.heathen-form-item {
+  align-items: flex-start;
+  gap: var(--gap, 24rpx);
+  padding: 24rpx;
+  flex-direction: var(--layout, row);
+  background-color: transparent;
+
+  .taroify-cell__title {
+    flex: var(--label-flex, none);
+  }
+
+  .taroify-cell__value {
+    flex: var(--wrapper-flex, auto);
+    text-align: var(--wrapper-align, left);
+  }
+
+  + .heathen-form-item {
+    border-top: none;
+  }
+
+  .heathen-form-item-label {
+    @apply text-black-2;
+
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+
+    .heathen-form-item-required {
+      @apply text-error-6;
+
+      position: absolute;
+      left: -0.6em;
+      top: 0;
+      font-family: SimSun, sans-serif;
+      user-select: none;
+    }
+
+    .heathen-form-item-label-help {
+      margin-left: 8rpx;
+      cursor: pointer;
+    }
+  }
+
+  .heathen-form-item-child {
+    display: flex;
+
+    .heathen-form-item-child-position-normal {
+      justify-content: normal;
+
+      > * {
+        flex: auto;
+      }
+    }
+
+    .heathen-form-item-child-position-right {
+      justify-content: flex-end;
+
+      > * {
+        flex: none;
+      }
+    }
+  }
+
+  .heathen-form-item-feedback-error {
+    @apply text-error-6;
+
+    margin-top: 8rpx;
+  }
+
+  .heathen-form-item-feedback-warning {
+    @apply text-warning-6;
+
+    margin-top: 8rpx;
+  }
+
+  .heathen-form-item.heathen-form-item-hidden {
+    display: none;
+  }
+
+  .heathen-form-item.heathen-form-item-horizontal {
+    .heathen-list-item-content-prefix {
+      padding-top: 24rpx;
+      padding-bottom: 24rpx;
+    }
+
+    .heathen-list-item-content-extra {
+      align-self: center;
+    }
+  }
+
+  .heathen-form-item.heathen-form-item-vertical {
+    .heathen-form-item-label {
+      margin-bottom: 8rpx;
+    }
+  }
+}

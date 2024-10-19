@@ -1,0 +1,11 @@
+* {
+  @apply box-border;
+}
+
+page {
+  @apply text-28 text-black-1;
+}
+
+image {
+  display: block;
+}

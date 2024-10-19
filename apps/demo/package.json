@@ -1,0 +1,29 @@
+{
+  "name": "@heathen-apps/demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "postinstall": "weapp-tw patch",
+    "build:weapp": "taro build --type weapp",
+    "dev:weapp": "npm run build:weapp -- --watch",
+    "lint": "eslint --ext .ts,.tsx  --max-warnings 0 \"src\" \"config\" ",
+    "stylelint": "stylelint \"src/**/*.css\"",
+    "tsc": "tsc -p ./tsconfig.json --noEmit"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
+  "author": "",
+  "dependencies": {
+    "@heathen/components": "workspace:*",
+    "@heathen/icons": "workspace:*",
+    "@heathen/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@heathen/design-token": "workspace:*",
+    "@heathen/polyfill": "workspace:*"
+  }
+}
