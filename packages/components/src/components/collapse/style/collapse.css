@@ -1,0 +1,68 @@
+.heathen-collapse {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0;
+  transition: gap 0.3s ease-out;
+}
+
+.heathen-collapse-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 32px;
+  align-items: center;
+
+  .heathen-collapse-header-title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  .heathen-collapse-header-icon {
+    color: var(--neutral-7);
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    transition: transform 0.3s ease-out;
+  }
+}
+
+.heathen-collapse-divide {
+  height: 0;
+  width: 100%;
+  background-color: var(--neutral-4);
+  border-radius: 99999px;
+  flex: none;
+}
+
+.heathen-collapse-content-wrapper {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.3s ease-out;
+  display: flex;
+  align-items: flex-end;
+}
+
+.heathen-collapse-content {
+  font-size: 28px;
+  color: var(--neutral-8);
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow: hidden;
+  width: 100%;
+}
+
+.heathen-collapse-expand {
+  gap: 24px;
+
+  .heathen-collapse-header-icon {
+    transform: rotate(180deg);
+  }
+
+  .heathen-collapse-divide {
+    height: 2px;
+  }
+}

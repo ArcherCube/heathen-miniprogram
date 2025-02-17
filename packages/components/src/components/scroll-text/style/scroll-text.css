@@ -1,0 +1,12 @@
+.heathen-scroll-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.heathen-scroll-text-content {
+  position: relative;
+  width: fit-content;
+  white-space: nowrap;
+  transition-property: transform;
+  transition-timing-function: linear;
+}

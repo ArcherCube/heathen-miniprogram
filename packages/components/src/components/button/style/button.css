@@ -1,0 +1,103 @@
+.heathen-button {
+  position: relative;
+  height: 88px;
+  padding: 16px 24px;
+  display: inline-flex;
+  font-size: 28px;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  gap: 0;
+  transition: gap 0.3s ease-out;
+}
+
+.heathen-button-default {
+  --color: var(--neutral-10);
+}
+
+.heathen-button-primary {
+  --color: var(--primary-6);
+}
+
+.heathen-button-danger {
+  --color: var(--error-6);
+}
+
+.heathen-button-disabled {
+  &::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255 255 255 / 30%);
+  }
+}
+
+.heathen-button-active:not(.heathen-button-disabled) {
+  &::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 10%);
+  }
+}
+
+.heathen-button-square {
+  border-radius: 16px;
+}
+
+.heathen-button-rounded {
+  border-radius: 99999px;
+}
+
+.heathen-button-loading-icon {
+  animation: rotate 1s linear infinite;
+  color: var(--color);
+  opacity: 0;
+  font-size: 0;
+  transition:
+    opacity 0.3s ease-out,
+    font-size 0.3s ease-out;
+}
+
+.heathen-button-contained {
+  background-color: var(--color);
+  color: white;
+  border: 0;
+
+  .heathen-button-loading-icon {
+    color: white;
+  }
+}
+
+.heathen-button-text {
+  background-color: transparent;
+  color: var(--color);
+  border: 0;
+}
+
+.heathen-button-outlined {
+  background-color: white;
+  color: var(--color);
+  border: 2px solid var(--color);
+}
+
+.heathen-button-loading {
+  gap: 8px;
+
+  .heathen-button-loading-icon {
+    opacity: 1;
+    font-size: 28px;
+  }
+}
+
+.heathen-button-block {
+  display: flex;
+  width: 100%;
+}

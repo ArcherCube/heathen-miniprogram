@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "removeComments": true,
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "isolatedModules": false,
+    "noEmit": false
+  },
+  "include": ["./**/*.ts", "./**/*.tsx", "index.ts"],
+  "exclude": ["node_modules", "dist"]
+}

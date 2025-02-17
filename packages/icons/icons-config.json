@@ -1,0 +1,5 @@
+{
+  "sourceDir": "./src/svg",
+  "outputDir": "./src/icons",
+  "className": "heathen-icon"
+}

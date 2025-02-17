@@ -19,11 +19,14 @@
   "author": "",
   "dependencies": {
     "@heathen/components": "workspace:*",
+    "@heathen/hooks": "workspace:*",
     "@heathen/icons": "workspace:*",
+    "@heathen/polyfill": "workspace:*",
+    "@heathen/router": "workspace:*",
+    "@heathen/theme": "workspace:*",
     "@heathen/utils": "workspace:*"
   },
   "devDependencies": {
-    "@heathen/design-token": "workspace:*",
-    "@heathen/polyfill": "workspace:*"
+    "@heathen/router-plugin": "workspace:*"
   }
 }

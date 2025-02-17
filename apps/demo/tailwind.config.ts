@@ -1,10 +1,72 @@
-import { theme } from '@heathen/design-token';
+import { Theme, ThemeColor } from '@heathen/theme';
 import { type Config } from 'tailwindcss';
+
+const themeColor: UnionToTuple<ThemeColor> = ['primary', 'black', 'neutral', 'success', 'warning', 'error'] as const;
+
+const varThemeColors = themeColor.reduce(
+  (colorStore, colorName) => {
+    return {
+      ...colorStore,
+      [colorName]: Array.from({ length: 16 }).reduce<Theme['colors'][ThemeColor]>(
+        (colorIndexStore, _, colorIndex) => {
+          return {
+            ...colorIndexStore,
+            [colorIndex + 1]: `var(--${colorName}-${colorIndex + 1})`,
+          };
+        },
+        {} as Theme['colors'][ThemeColor],
+      ),
+    };
+  },
+  {} as Theme['colors'],
+);
 
 export default {
   content: ['./src/**/*.{jsx,tsx,ts}'],
   theme: {
-    extend: theme,
+    extend: {
+      colors: varThemeColors,
+      borderRadius: Array.from({ length: 750 + 1 }).reduce<Record<number, string>>((store, _, index) => {
+        return {
+          ...store,
+          [index]: `${index}px`,
+        };
+      }, {}),
+      spacing: Array.from({ length: 750 + 1 }).reduce<Record<number, string>>((store, _, index) => {
+        return {
+          ...store,
+          [index]: `${index}px`,
+        };
+      }, {}),
+      fontSize: Array.from({ length: 128 + 1 }).reduce<Record<number, string>>((store, _, index) => {
+        return {
+          ...store,
+          [index]: `${index}px`,
+        };
+      }, {}),
+      borderWidth: Array.from({ length: 64 + 1 }).reduce<Record<number, string>>((store, _, index) => {
+        return {
+          ...store,
+          [index]: `${index}px`,
+        };
+      }, {}),
+      lineHeight: Array.from({ length: 64 + 1 }).reduce<Record<number, string>>((store, _, index) => {
+        return {
+          ...store,
+          [index]: `${index}px`,
+        };
+      }, {}),
+      fontFamily: {
+        number: ['DIN\\ Alternate'],
+        alimm: ['Alimama\\ ShuHeiTi'],
+      },
+      height: {
+        'tab-bar': '100px',
+      },
+      boxShadow: {
+        default: '0 12px 12px 0 rgb(0 0 0 / 5%)',
+      },
+    },
   },
   plugins: [],
   corePlugins: {

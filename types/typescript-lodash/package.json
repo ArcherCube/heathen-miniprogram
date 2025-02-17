@@ -1,0 +1,15 @@
+{
+  "name": "@heathen-types/typescript-lodash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "types": "index.d.ts",
+  "scripts": {
+    "lint": "eslint --ext .ts,.tsx  --max-warnings 0 \"./\" ",
+    "tsc": "tsc -p ./tsconfig.json --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

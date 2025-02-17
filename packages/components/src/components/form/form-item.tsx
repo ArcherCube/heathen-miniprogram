@@ -145,7 +145,7 @@ const FormItemLayout: FC<FormItemLayoutProps> = (props) => {
       rightIcon={props.suffix}
     >
       <View className={classNames(`${classPrefix}-child`, `${classPrefix}-child-position-${childElementPosition}`)}>
-        <View className={classNames(`${classPrefix}-child-inner`)}>{props.children}</View>
+        {props.children}
       </View>
       {description}
     </Cell>,

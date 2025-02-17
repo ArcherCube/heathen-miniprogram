@@ -1,13 +1,13 @@
 import { useMemoizedFn, useUpdate } from 'ahooks';
 import { SetStateAction, useRef } from 'react';
 
-export type PropsValueOptions<T> = {
+export type PropsValueOptions<T, D extends any[] = []> = {
   value?: T;
   defaultValue: T;
-  onChange?: (v: T) => void;
+  onChange?: (v: T, ...otherData: D) => void;
 };
 
-export const usePropsValue = <T>(options: PropsValueOptions<T>) => {
+export const usePropsValue = <T, D extends any[] = []>(options: PropsValueOptions<T, D>) => {
   const { value, defaultValue, onChange } = options;
 
   const update = useUpdate();
@@ -17,12 +17,12 @@ export const usePropsValue = <T>(options: PropsValueOptions<T>) => {
     stateRef.current = value;
   }
 
-  const setState = useMemoizedFn((v: SetStateAction<T>, forceTrigger = false) => {
+  const setState = useMemoizedFn((v: SetStateAction<T>, ...otherData: D) => {
     const nextValue = typeof v === 'function' ? (v as (prevState: T) => T)(stateRef.current) : v;
-    if (!forceTrigger && nextValue === stateRef.current) return;
+    if (nextValue === stateRef.current) return;
     stateRef.current = nextValue;
     update();
-    return onChange?.(nextValue);
+    return onChange?.(nextValue, ...otherData);
   });
   return [stateRef.current, setState] as const;
 };

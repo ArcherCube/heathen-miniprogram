@@ -1,0 +1,14 @@
+export { AddImageOutlined } from './add-image-outlined';
+export { CheckOutlined } from './check-outlined';
+export { CrossCircleOutlined } from './cross-circle-outlined';
+export { CrossOutlined } from './cross-outlined';
+export { DownFilled } from './down-filled';
+export { DownOutlined } from './down-outlined';
+export { HomeOutlined } from './home-outlined';
+export { LeftFilled } from './left-filled';
+export { LeftOutlined } from './left-outlined';
+export { LoadingOutlined } from './loading-outlined';
+export { RightFilled } from './right-filled';
+export { RightOutlined } from './right-outlined';
+export { UpFilled } from './up-filled';
+export { UpOutlined } from './up-outlined';

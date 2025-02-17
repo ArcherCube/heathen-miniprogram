@@ -1,0 +1,51 @@
+.heathen-navigation-bar {
+  --button-background: transparent;
+
+  font-size: 36px;
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+
+  .heathen-navigation-bar-buttons {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 9999px;
+    background: var(--button-background);
+
+    .heathen-navigation-bar-buttons-button {
+      font-size: 40px;
+      display: flex;
+      height: auto;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      padding: 10px;
+    }
+
+    .heathen-navigation-bar-buttons-split {
+      background-color: var(--neutral-4);
+      height: 40px;
+      width: 0;
+      flex: none;
+    }
+  }
+
+  .heathen-navigation-bar-buttons-frame {
+    border: 1px solid var(--neutral-4);
+    padding-left: 16px;
+    padding-right: 16px;
+
+    .heathen-navigation-bar-buttons-split {
+      width: 1px;
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+  }
+}

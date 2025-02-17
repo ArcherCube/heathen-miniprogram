@@ -1,9 +1,10 @@
-import { MAIN_PAGES } from '@/constants/pages';
+import { Router } from '@heathen/router';
 
 export default defineAppConfig({
-  pages: Object.values(MAIN_PAGES).map((page) => page.replace('/', '')),
+  ...Router.getAppConfig(),
   window: {
     navigationStyle: 'custom',
+    navigationBarBackgroundColor: '#fff',
     navigationBarTextStyle: 'black',
   },
   usingComponents: {},

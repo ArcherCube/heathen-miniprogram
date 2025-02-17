@@ -1,26 +1,38 @@
 import { defineConfig, type UserConfigExport } from '@tarojs/cli';
+import { IConfig } from '@heathen/router-plugin/src/config';
 import path from 'path';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { UnifiedWebpackPluginV5 as WeappTailwindcssWebpackPlugin } from 'weapp-tailwindcss/webpack';
 import Webpack from 'webpack';
-import devConfig from './dev';
-import prodConfig from './prod';
+import { environmentCheck } from './environment-check';
 
-export default defineConfig(async (merge) => {
+export default defineConfig(async (merge, env) => {
+  environmentCheck(env);
+
   const baseConfig: UserConfigExport = {
     projectName: 'heathen-miniprogram',
-    // 使用 tailwind 时不可再依赖 taro 的单位转换，需要另外使用类似 postcss-pxtransform 的转换，但没必要，规范使用rpx就好
-    // designWidth: 375,
-    // deviceRatio: {
-    //   640: 2.34 / 2,
-    //   750: 1,
-    //   375: 2 / 1,
-    //   828: 1.81 / 2,
-    // },
     sourceRoot: 'src',
     outputRoot: 'dist',
-    plugins: [],
+    plugins: [
+      [
+        '@heathen/router-plugin',
+        {
+          ignore: ['components', '.DS_Store'],
+          defaultPage: 'pages/main/index/index',
+          packages: [
+            {
+              name: 'main',
+              pagePath: path.resolve(__dirname, '../src/pages/main'),
+            },
+          ],
+        } satisfies IConfig,
+      ],
+    ],
     defineConstants: {},
+    copy: {
+      patterns: [],
+      options: {},
+    },
     framework: 'react',
     compiler: {
       type: 'webpack5',
@@ -47,6 +59,18 @@ export default defineConfig(async (merge) => {
             limit: 1024, // 设定转换尺寸上限
           },
         },
+        pxtransform: {
+          enable: true,
+          config: {
+            designWidth: 750,
+            deviceRatio: {
+              640: 2.34 / 2,
+              750: 1,
+              375: 2 / 1,
+              828: 1.81 / 2,
+            },
+          },
+        },
         cssModules: {
           enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
           config: {
@@ -63,29 +87,25 @@ export default defineConfig(async (merge) => {
       },
       webpackChain(chain) {
         chain.resolve.plugin('tsconfig-paths').use(new TsconfigPathsPlugin({}));
-        // taroify lodash处理，避免引入整个lodash
         chain.plugin('tree-shaking-lodash').use(Webpack.NormalModuleReplacementPlugin, [/^lodash$/, 'lodash-es']);
-
-        chain.merge({
-          plugin: {
-            install: {
-              plugin: WeappTailwindcssWebpackPlugin,
-              args: [
-                {
-                  appType: 'taro',
-                },
-              ],
-            },
-          },
-        });
+        chain.plugin('weapp-tailwindcss').use(WeappTailwindcssWebpackPlugin, [{ appType: 'taro' }]);
+        chain.module
+          .rule('svg')
+          .test(/\.svg(\?.*)?$/)
+          .use('raw-loader')
+          .loader('raw-loader')
+          .end();
       },
     },
   };
 
   if (process.env.NODE_ENV === 'development') {
-    // 本地开发构建配置（不混淆压缩）
-    return merge({}, baseConfig, devConfig);
+    return merge({}, baseConfig, {
+      logger: {
+        quiet: false,
+        stats: true,
+      },
+    });
   }
-  // 生产构建配置（默认开启压缩混淆等）
-  return merge({}, baseConfig, prodConfig);
+  return merge({}, baseConfig);
 });

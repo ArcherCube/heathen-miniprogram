@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro';
 import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
 import React from 'react';
 import { FormLayout } from '.';
@@ -14,7 +15,7 @@ export type FormContextType = {
 };
 
 export const defaultFormContext: FormContextType = {
-  labelCol: { flex: '0 0 160rpx' },
+  labelCol: { flex: `0 0 ${Taro.pxTransform(164)}` },
   wrapperCol: { flex: 'auto' },
   align: 'left',
   name: undefined,

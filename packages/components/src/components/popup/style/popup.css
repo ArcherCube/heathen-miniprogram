@@ -1,0 +1,49 @@
+.heathen-popup {
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+}
+
+.heathen-popup-bottom {
+  transform: translate(0, calc(50vh - 50%));
+  width: 100vw;
+}
+
+.heathen-popup-top {
+  transform: translate(0, calc(-1 * (50vh - 50%)));
+  width: 100vw;
+}
+
+.heathen-popup-left {
+  transform: translate(calc(-1 * (50vw - 50%)), 0);
+  height: 100vh;
+}
+
+.heathen-popup-right {
+  transform: translate(calc(50vw - 50%), 0);
+  height: 100vh;
+}
+
+.heathen-popup-rounded {
+  --rounded-radius: 24px;
+
+  &.heathen-popup-bottom {
+    border-top-left-radius: var(--rounded-radius);
+    border-top-right-radius: var(--rounded-radius);
+  }
+
+  &.heathen-popup-top {
+    border-bottom-left-radius: var(--rounded-radius);
+    border-bottom-right-radius: var(--rounded-radius);
+  }
+
+  &.heathen-popup-left {
+    border-top-right-radius: var(--rounded-radius);
+    border-bottom-right-radius: var(--rounded-radius);
+  }
+
+  &.heathen-popup-right {
+    border-top-left-radius: var(--rounded-radius);
+    border-bottom-left-radius: var(--rounded-radius);
+  }
+}

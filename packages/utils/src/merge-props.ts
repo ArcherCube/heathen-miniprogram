@@ -1,3 +1,4 @@
+import isNil from 'lodash-es/isNil';
 import assign from 'lodash-es/assign';
 import assignWith from 'lodash-es/assignWith';
 import isUndefined from 'lodash-es/isUndefined';
@@ -24,7 +25,7 @@ export function mergeProps(...items: any[]) {
  */
 export function propsList<T>(...items: T[]): T | undefined {
   for (let A = 0; A < items.length; ++A) {
-    if (items[A] !== undefined) {
+    if (!isNil(items[A])) {
       return items[A];
     }
   }

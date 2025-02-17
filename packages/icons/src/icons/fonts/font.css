@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "font";
+  src: url('font.woff2?t=1739759419772') format('woff2'),
+  url('font.woff?t=1739759419772') format('woff'),
+  url('font.ttf?t=1739759419772') format('truetype');
+}
+
+[class^="heathen-icon-"], [class*=" heathen-icon-"] {
+  font-family: 'font' !important;font-size: inherit;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.heathen-icon-add-image-outlined:before { content: "\ea01"; }
+.heathen-icon-check-outlined:before { content: "\ea02"; }
+.heathen-icon-cross-circle-outlined:before { content: "\ea03"; }
+.heathen-icon-cross-outlined:before { content: "\ea04"; }
+.heathen-icon-down-filled:before { content: "\ea05"; }
+.heathen-icon-down-outlined:before { content: "\ea06"; }
+.heathen-icon-home-outlined:before { content: "\ea07"; }
+.heathen-icon-left-filled:before { content: "\ea08"; }
+.heathen-icon-left-outlined:before { content: "\ea09"; }
+.heathen-icon-loading-outlined:before { content: "\ea0a"; }
+.heathen-icon-right-filled:before { content: "\ea0b"; }
+.heathen-icon-right-outlined:before { content: "\ea0c"; }
+.heathen-icon-up-filled:before { content: "\ea0d"; }
+.heathen-icon-up-outlined:before { content: "\ea0e"; }
+
+

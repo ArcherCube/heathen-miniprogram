@@ -1,0 +1,62 @@
+.heathen-skeleton {
+  height: 32px;
+  background: var(--neutral-4);
+}
+
+.heathen-skeleton-rect {
+  border-radius: 16px;
+}
+
+.heathen-skeleton-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+}
+
+.heathen-skeleton-pulse {
+  animation: heathen-skeleton-pulse 1.5s ease-in-out 0.5s infinite;
+}
+
+.heathen-skeleton-wave {
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(0 0 0 / 4%),
+      transparent
+    );
+    transform: translateX(-100%);
+    animation: heathen-skeleton-wave 1.6s linear 1s infinite;
+  }
+}
+
+@keyframes heathen-skeleton-pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes heathen-skeleton-wave {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}

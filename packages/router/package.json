@@ -1,0 +1,28 @@
+{
+  "name": "@heathen/router",
+  "private": true,
+  "version": "1.1.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint --ext .ts,.tsx  --max-warnings 0 \"./src\" ",
+    "tsc": "tsc -p ./tsconfig.json --noEmit",
+    "prod": "tsc -p ./tsconfig.json",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && pnpm run prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@heathen/utils": "workspace:*",
+    "normalize-path": "^3.0.0",
+    "query-string": "^7.0.0",
+    "ts-morph": "^21.0.1"
+  },
+  "devDependencies": {
+    "@types/normalize-path": "^3.0.0"
+  }
+}

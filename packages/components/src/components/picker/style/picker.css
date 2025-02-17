@@ -1,0 +1,38 @@
+.heathen-picker-popup {
+  color: var(--neutral-10);
+  background-color: white;
+  min-height: 50vh;
+  display: flex;
+  flex-flow: column nowrap;
+
+  .heathen-picker-view {
+    height: 100%;
+    flex: auto;
+  }
+}
+
+.heathen-picker-popup-header {
+  background-color: white;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 32px;
+  flex: none;
+}
+
+.heathen-picker-popup-header-cancel {
+  position: relative;
+  height: 100%;
+}
+
+.heathen-picker-popup-header-title {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.heathen-picker-popup-header-confirm {
+  position: relative;
+  height: 100%;
+}

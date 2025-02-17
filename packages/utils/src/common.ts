@@ -12,8 +12,7 @@ export const wait = async (duration?: number) => {
  * @returns {string}
  */
 export const formatNumber = (money: string | number | undefined, fixed: number = 2) => {
-  return (typeof money === 'string' ? parseFloat(money) : (money ?? 0)).toLocaleString('zh-CN', {
-    maximumFractionDigits: fixed,
-    minimumFractionDigits: fixed,
-  });
+  if (!money) return '0';
+  const numberStr = (typeof money === 'string' ? parseFloat(money) : (money ?? 0)).toFixed(fixed);
+  return numberStr.replace(/\B(?=(?<!\..*)(\d{3})+(?!\d))/g, ',');
 };

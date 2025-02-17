@@ -1,0 +1,91 @@
+.heathen-tab-bar {
+  --tab-bar-height: 100px;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  overflow: visible;
+  width: 100%;
+  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 8%);
+}
+
+.heathen-tab-bar-tabs {
+  height: var(--tab-bar-height);
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  justify-content: space-around;
+}
+
+.heathen-tab-bar-tabs-item {
+  color: var(--neutral-10);
+  display: flex;
+  flex: auto;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 6px 0;
+}
+
+.heathen-tab-bar-tabs-item-icon {
+  position: relative;
+  font-size: 48px;
+  margin-bottom: 4px;
+  height: 48px;
+  width: 48px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heathen-tab-bar-tabs-item-icon-active,
+.heathen-tab-bar-tabs-item-icon-normal {
+  position: absolute;
+  transition: opacity 0.1s ease-out;
+}
+
+.heathen-tab-bar-tabs-item-icon-active {
+  opacity: 0;
+}
+
+.heathen-tab-bar-tabs-item-icon-normal {
+  opacity: 1;
+}
+
+.heathen-tab-bar-tabs-item-raise {
+  .heathen-tab-bar-tabs-item-icon {
+    margin-bottom: 0;
+    width: 98px;
+    height: 98px;
+    background: white;
+    border-radius: 9999px;
+  }
+}
+
+.heathen-tab-bar-tabs-item-text {
+  font-size: 20px;
+  flex: none;
+}
+
+.heathen-tab-bar-tabs-item-actived {
+  .heathen-tab-bar-tabs-item-text {
+    color: var(--primary-6);
+  }
+
+  .heathen-tab-bar-tabs-item-icon-active {
+    opacity: 1;
+  }
+
+  .heathen-tab-bar-tabs-item-icon-normal {
+    opacity: 0;
+  }
+}
+
+.heathen-tab-bar-safe-area {
+  /* stylelint-disable-next-line function-no-unknown */
+  padding-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
+  padding-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
+}

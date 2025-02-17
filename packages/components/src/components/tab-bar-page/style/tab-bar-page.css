@@ -1,0 +1,14 @@
+.heathen-tab-bar-page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.heathen-tab-bar-page-list {
+  position: relative;
+  height: 100%;
+  overflow: visible;
+  display: flex;
+  transition: transform 0.3s ease-out;
+}

@@ -10,8 +10,9 @@
     "strict": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "resolveJsonModule": true,
     "typeRoots": ["node_modules/@types", "node_modules/@heathen-types"]
   },
-  "include": ["./**/*.ts","./**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["./**/*.ts", "./**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,7 +1,5 @@
 /* 组件库主题 */
 page {
-  background: #f5f5f5;
-
   /* Color Palette */
   --black: #000;
   --white: #fff;
@@ -25,7 +23,7 @@ page {
   --gradient-orange: linear-gradient(to right, #ffd01e, #ff8917);
 
   /* Component Colors */
-  --primary-color: var(--blue);
+  --primary-color: #1278be;
   --success-color: var(--green);
   --danger-color: var(--red);
   --warning-color: var(--orange);
@@ -38,23 +36,23 @@ page {
   --text-link-color: #576b95;
 
   /* Padding */
-  --padding-base: 8rpx;
-  --padding-xs: 16rpx;
-  --padding-sm: 24rpx;
-  --padding-md: 32rpx;
-  --padding-lg: 48rpx;
-  --padding-xl: 64rpx;
+  --padding-base: 8px;
+  --padding-xs: 16px;
+  --padding-sm: 24px;
+  --padding-md: 32px;
+  --padding-lg: 48px;
+  --padding-xl: 64px;
 
   /* Font */
-  --font-size-xs: 20rpx;
-  --font-size-sm: 24rpx;
-  --font-size-md: 28rpx;
-  --font-size-lg: 32rpx;
+  --font-size-xs: 20px;
+  --font-size-sm: 24px;
+  --font-size-md: 28px;
+  --font-size-lg: 32px;
   --font-weight-bold: 500;
-  --line-height-xs: 28rpx;
-  --line-height-sm: 36rpx;
-  --line-height-md: 40rpx;
-  --line-height-lg: 44rpx;
+  --line-height-xs: 28px;
+  --line-height-sm: 36px;
+  --line-height-md: 40px;
+  --line-height-lg: 44px;
   --base-font-family: -apple-system, blinkmacsystemfont, "Helvetica Neue",
     helvetica, segoe ui, arial, roboto, "PingFang SC", "miui",
     "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
@@ -69,9 +67,46 @@ page {
 
   /* Border */
   --border-color: var(--gray-3);
-  --border-width-base: 2rpx;
-  --border-radius-sm: 4rpx;
-  --border-radius-md: 8rpx;
-  --border-radius-lg: 16rpx;
-  --border-radius-max: 9999rpx;
+  --border-width-base: 2px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-max: 9999px;
+
+  /* 组件 */
+  --button-border-radius: var(--border-radius-lg);
+  --cell-group-inset-padding: 0 var(--padding-sm);
+  --search-content-background-color: white;
+  --tabs-line-width: 48px;
+}
+
+.taroify-tabs__wrap__scroll--line,
+.taroify-tabs__nav {
+  background-color: transparent;
+}
+
+.taroify-tabs__tab {
+  @apply text-neutral-10 text-32 font-normal;
+}
+
+.taroify-tabs__tab.taroify-tabs__tab--disabled {
+  @apply text-neutral-6;
+}
+
+.taroify-tabs__tab--active {
+  @apply text-primary-6;
+}
+
+.taroify-tabs__line {
+  bottom: 10px;
+}
+
+.taroify-search {
+  padding: 0;
+  background-color: white;
+  border-radius: 999px;
+
+  .taroify-search__content {
+    background-color: transparent;
+  }
 }

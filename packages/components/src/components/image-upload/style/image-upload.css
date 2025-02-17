@@ -1,0 +1,79 @@
+.heathen-image-upload {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 112px);
+  gap: 24px;
+  width: 100%;
+}
+
+.heathen-image-upload-item {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .heathen-image-upload-item-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.heathen-image-upload-item-delete-button {
+  background-color: var(--black-3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-bottom-left-radius: 12px;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+}
+
+.heathen-image-upload-item-status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-3);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+  .heathen-icon {
+    font-size: 48px;
+  }
+}
+
+.heathen-image-upload-item-status-loading {
+  animation: rotate 1s linear infinite;
+}
+
+.heathen-image-upload-button {
+  background-color: var(--neutral-3);
+  color: var(--neutral-6);
+  border: 2px var(--neutral-5) dashed;
+  width: 112px;
+  height: 112px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-flow: column nowrap;
+  font-size: 40px;
+  border-radius: 8px;
+}
+
+.heathen-image-upload-button-text {
+  font-size: 24px;
+  line-height: 1;
+}

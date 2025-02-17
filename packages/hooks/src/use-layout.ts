@@ -24,12 +24,16 @@ export type Layout = {
   screenWidth: number;
   /** 屏幕高度 */
   screenHeight: number;
+  /** 上方非安全区高度 */
+  unsafeAreaTop: number;
+  /** 下方非安全区高度 */
+  unsafeAreaBottom: number;
 };
 
 const defaultMenuRect: Required<MenuRect> = { width: 0, height: 0, top: 0, left: 0, bottom: 0, right: 0 };
 
 const getLayout = () => {
-  const { statusBarHeight = 0, screenHeight, screenWidth } = Taro.getWindowInfo();
+  const { statusBarHeight = 0, screenHeight, screenWidth, safeArea } = Taro.getWindowInfo();
   const menuRect = Taro.getMenuButtonBoundingClientRect();
 
   const navigationBarPaddingY = menuRect.top - statusBarHeight;
@@ -42,6 +46,8 @@ const getLayout = () => {
     menuRect: mergeProps(defaultMenuRect, menuRect),
     screenHeight,
     screenWidth,
+    unsafeAreaTop: safeArea?.top ?? 0,
+    unsafeAreaBottom: screenHeight - (safeArea?.bottom ?? 0),
   };
   return layout;
 };

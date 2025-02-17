@@ -1,0 +1,27 @@
+.heathen-image {
+  position: relative;
+  overflow: hidden;
+
+  image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.1s ease-out;
+  }
+
+  .heathen-image-hidden {
+    opacity: 0;
+  }
+
+  .heathen-image-visible {
+    opacity: 1;
+  }
+
+  .heathen-image-source {
+    position: relative;
+  }
+
+  .heathen-image-thumbnail {
+    position: absolute;
+  }
+}

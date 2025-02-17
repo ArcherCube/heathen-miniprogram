@@ -1,0 +1,142 @@
+.heathen-rich-text {
+  image,
+  video {
+    max-width: 100%;
+    display: block;
+  }
+
+  image {
+    width: 100%;
+  }
+
+  video {
+    width: 100%;
+  }
+
+  .li {
+    display: flex;
+    align-items: center;
+  }
+
+  .ul .li::before {
+    display: inline-block;
+    content: "";
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 9999rpx;
+    background-color: currentcolor;
+    margin-right: 10rpx;
+  }
+
+  .ol .li .mark {
+    display: inline-block;
+    margin-right: 10rpx;
+  }
+
+  .code {
+    display: block;
+    border: 1px solid var(--neutral-4);
+    padding: 20rpx;
+    text-indent: 0;
+    border-radius: 8rpx;
+    background-color: var(--neutral-3);
+  }
+
+  .checkbox {
+    display: inline-flex;
+    width: 30rpx;
+    height: 30rpx;
+    border: 1px solid var(--neutral-4);
+    border-radius: 6rpx;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10rpx;
+  }
+
+  .checkbox.checked {
+    background-color: var(--primary-6);
+  }
+
+  .checkbox.checked::before {
+    content: "✔";
+    display: block;
+    font-size: 20rpx;
+    color: white;
+  }
+
+  .todo {
+    display: flex;
+    align-items: center;
+  }
+
+  .table {
+    .tr {
+      display: flex;
+    }
+
+    .th:not(:empty) {
+      border: 1px solid var(--neutral-6);
+      padding: 3rpx 5rpx;
+      text-align: center;
+      background-color: var(--neutral-3);
+      flex: 1;
+    }
+
+    .td {
+      border: 1px solid var(--neutral-4);
+      flex: 1;
+      padding: 3rpx 5rpx;
+    }
+  }
+
+  .divider {
+    padding: 0 24rpx;
+  }
+
+  .divider::after {
+    content: "";
+    display: block;
+    height: 1px;
+    border: 0;
+    margin: 20rpx auto;
+    background-color: var(--neutral-4);
+  }
+
+  .blockquote {
+    display: block;
+    padding: 10rpx;
+    margin: 10rpx 0;
+    font-size: 100%;
+    background-color: var(--neutral-3);
+    border-left: 8rpx solid var(--primary-6);
+    line-height: 1.5;
+  }
+
+  .strong {
+    font-weight: bold;
+  }
+
+  .em {
+    font-style: italic;
+  }
+
+  .u {
+    text-decoration: underline;
+  }
+
+  .s {
+    text-decoration: line-through;
+  }
+
+  .sup {
+    display: inline-block;
+    font-size: smaller;
+    vertical-align: super;
+  }
+
+  .sub {
+    display: inline-block;
+    font-size: smaller;
+    vertical-align: sub;
+  }
+}

@@ -1,0 +1,54 @@
+.heathen-checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.heathen-checkbox-icon {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--neutral-6);
+  background-color: transparent;
+  transition:
+    border-color 150ms ease-out,
+    background-color 150ms ease-out;
+  color: white;
+
+  .heathen-icon {
+    opacity: 0;
+    transition: opacity 150ms ease-out;
+  }
+}
+
+.heathen-checkbox-circle {
+  .heathen-checkbox-icon {
+    border-radius: 9999px;
+  }
+}
+
+.heathen-checkbox-square {
+  .heathen-checkbox-icon {
+    border-radius: 4px;
+  }
+}
+
+.heathen-checkbox-checked {
+  .heathen-checkbox-icon {
+    border-color: transparent;
+    background-color: var(--primary-6);
+
+    .heathen-icon {
+      opacity: 1;
+    }
+  }
+}
+
+.heathen-checkbox-disabled {
+  opacity: var(--form-control-disabled-opacity);
+}
