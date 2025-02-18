@@ -166,4 +166,11 @@ export class Router {
     const route_key = getCurrentRouteKey();
     PageData.setPageData(route_key, value);
   }
+
+  static getAppConfig() {
+    return {
+      pages: [],
+      subPackages: [],
+    };
+  }
 }
