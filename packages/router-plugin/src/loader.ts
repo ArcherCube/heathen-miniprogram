@@ -10,6 +10,8 @@ import { ConfigPage, Page, PageMethod, RouteConfig } from './entitys';
 import { Plugin } from './plugin';
 import { extractValue, formatPageDir, isNil } from './utils';
 
+const ACCEPTS_INDEX_FILE = ['index.js', 'index.jsx', 'index.jsx', 'index.tsx'];
+
 export class Loader {
   project = new Project();
   configPages: ConfigPage[] = [];
@@ -63,16 +65,16 @@ export class Loader {
         .filter((pageDirName) => {
           return (
             fs.statSync(path.resolve(pkg.pagePath, pageDirName)).isDirectory() &&
-            (fs.existsSync(path.resolve(pkg.pagePath, pageDirName, 'index.tsx')) ||
-              fs.existsSync(path.resolve(pkg.pagePath, pageDirName, 'index.ts')) ||
-              fs.existsSync(path.resolve(pkg.pagePath, pageDirName, 'index.jsx')) ||
-              fs.existsSync(path.resolve(pkg.pagePath, pageDirName, 'index.js')))
+            ACCEPTS_INDEX_FILE.some((filename) => fs.existsSync(path.resolve(pkg.pagePath, pageDirName, filename)))
           );
         })
         // ignore配置
         .filter(ignoreFilter)
         .forEach((pageDirName) => {
-          const fullPath = path.resolve(pkg.pagePath, pageDirName, 'index');
+          const indexFilePaths = fs
+            .readdirSync(path.resolve(pkg.pagePath, pageDirName), { encoding: 'utf8' })
+            .filter((filename) => ACCEPTS_INDEX_FILE.some((_filename) => filename === _filename));
+          // const fullPath = path.resolve(pkg.pagePath, pageDirName, 'index');
           // if (
           //   !this.root.isWatch &&
           //   this.configPages.findIndex((configPage) => configPage.fullPath === fullPath) === -1
@@ -86,7 +88,7 @@ export class Loader {
             dirPath: path.resolve(pkg.pagePath, pageDirName),
             // 生成跳转路径
             path: normalize(path.join(pkg.pagePath.replace(this.root.paths.sourcePath, ''), pageDirName, 'index')),
-            fullPath: fullPath,
+            fullPath: path.resolve(pkg.pagePath, pageDirName, indexFilePaths[0]),
           });
 
           const sourceFile = routeConfigSourceFiles.find((_sourceFile) => {
@@ -206,6 +208,8 @@ export class Loader {
       ReturnType = routeConfig.backData;
     }
 
+    const methodComment = `/** [View page component](${page.fullPath}) */`;
+
     if (!routeConfig || isNil(routeConfig.params)) {
       methodType =
         `<TBackData = ${ReturnType}, TParams = unknown>` +
@@ -214,6 +218,7 @@ export class Loader {
         name: methodName,
         type: methodType,
         value: method,
+        comment: methodComment,
       });
       return;
     }
@@ -226,6 +231,7 @@ export class Loader {
       name: methodName,
       type: methodType,
       value: method,
+      comment: methodComment,
     });
   }
 }

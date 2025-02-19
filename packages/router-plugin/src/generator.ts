@@ -97,7 +97,7 @@ export class Generator {
         static ${packageName}: {
           ${pages
             ?.map((page) => {
-              return `${page.method?.name}: ${page.method?.type}`;
+              return `${page.method?.comment}\n${page.method?.name}: ${page.method?.type}`;
             })
             .join(';\n')}
         } = {

@@ -28,17 +28,20 @@ export class PageMethod {
   name: string;
   type: string;
   value: string;
+  comment: string;
 
   constructor(
     private readonly init: {
       name: string;
       type: string;
       value: string;
+      comment: string;
     },
   ) {
     this.name = init.name;
     this.type = init.type;
     this.value = init.value;
+    this.comment = init.comment;
   }
 }
 
