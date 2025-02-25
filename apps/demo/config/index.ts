@@ -1,5 +1,5 @@
 import { defineConfig, type UserConfigExport } from '@tarojs/cli';
-import { IConfig } from '@heathen/router-plugin/src/config';
+import { Config } from '@heathen/router-plugin';
 import path from 'path';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { UnifiedWebpackPluginV5 as WeappTailwindcssWebpackPlugin } from 'weapp-tailwindcss/webpack';
@@ -25,7 +25,7 @@ export default defineConfig(async (merge, env) => {
               pagePath: path.resolve(__dirname, '../src/pages/main'),
             },
           ],
-        } satisfies IConfig,
+        } satisfies Config,
       ],
     ],
     defineConstants: {},
