@@ -1,10 +1,11 @@
-export interface IConfigPackage {
+export interface ConfigPackage {
   /** 包名 */
   name: string;
   /** 包页面根路径 */
   pagePath: string;
 }
-export interface IConfig {
+
+export type Config = {
   /** 排除的文件 */
   ignore: string[];
   /**
@@ -13,7 +14,18 @@ export interface IConfig {
    */
   defaultPage?: string;
   /** 包配置 */
-  packages: IConfigPackage[];
-}
+  packages: ConfigPackage[];
+};
 
-export const isDev = process.env.NODE_ENV === 'development';
+export type Page = {
+  dirName: string;
+  dirPath: string;
+  path: string;
+  pageFileName: string;
+  packageName: string;
+  routeConfig?: {
+    params?: string;
+    backData?: string;
+    ext?: string;
+  };
+};
