@@ -1,5 +1,4 @@
 import { View, ViewProps } from '@tarojs/components';
-import clsx from 'clsx';
 import '../style';
 
 export type IconProps = {
@@ -11,7 +10,7 @@ export const Icon = (props: IconProps) => {
 
   return (
     <View
-      className={clsx('heathen-icon', `${type}`, className)}
+      className={`heathen-icon ${type} ${className}`}
       // @ts-ignore next-line
       alt='icon'
       {...otherProps}

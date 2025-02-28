@@ -6,7 +6,7 @@
   "main": "index.ts",
   "module": "index.ts",
   "scripts": {
-    "update": "icons-cli update",
+    "update": "taro-icon-helper update && eslint --fix ./src/icons --ext .ts,.tsx",
     "lint": "eslint --ext .ts,.tsx  --max-warnings 0 \"./\" ",
     "tsc": "tsc -p ./tsconfig.json --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,6 @@
     "@heathen/utils": "workspace:*"
   },
   "devDependencies": {
-    "@heathen/icons-cli": "workspace:*"
+    "taro-icon-helper": "^0.2.3"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "sourceDir": "./src/source",
+  "outputDir": "./src/icons",
+  "className": "heathen-icon",
+  "fontName": "heathen-icon-font"
+}
