@@ -1,6 +1,5 @@
-import { tsProject } from '../common';
-import { Config, Page } from '../type';
-import { generateAppConfig } from './app-config';
+import { tsProject } from '../../common';
+import { Config, Page } from '../../type';
 import { generateRouterNavigateMethod } from './navigate';
 import { generateGetPagesMethod } from './pages';
 
@@ -19,9 +18,6 @@ export const generateRouterSourceFile = (params: GenerateRouterMethodsParams) =>
 
     // 生成路由方法
     writer.write(generateRouterNavigateMethod(params));
-
-    // 生成app配置
-    writer.write(generateAppConfig(params));
 
     // 迁移页面对象集合
     writer.write(generateGetPagesMethod(params));

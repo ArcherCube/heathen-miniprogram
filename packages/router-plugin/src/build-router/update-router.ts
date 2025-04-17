@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { SourceFile } from 'ts-morph';
-import { tsProject } from './common';
-import { TARGET_MODULE_PATH } from './constant';
-import { Config } from './type';
+import { tsProject } from '../common';
+import { TARGET_MODULE_PATH } from '../constant';
+import { Config } from '../type';
 
 type UpdateRouterParams = {
   config: Config;

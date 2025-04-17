@@ -43,6 +43,5 @@ export const generateAppConfig = ({ pages, config }: GenerateAppConfigParams) =>
     });
   }
 
-  return `private static _appConfig = ${JSON.stringify(appConfig)};
-    static getAppConfig = () => { return Router._appConfig };`;
+  return appConfig;
 };

@@ -1,4 +1,4 @@
-import { Config, Page } from '../type';
+import { Config, Page } from '../../type';
 
 type GenerateGetPagesMethodParams = {
   pages: Page[];

@@ -1,6 +1,6 @@
-import { MAIN_PACKAGE_NAME } from '../constant';
-import { Config, Page } from '../type';
-import { formatPageDir } from '../utils';
+import { MAIN_PACKAGE_NAME } from '../../constant';
+import { Config, Page } from '../../type';
+import { formatPageDir } from '../../utils';
 
 type GenerateRouterNavigateMethodParams = {
   pages: Page[];

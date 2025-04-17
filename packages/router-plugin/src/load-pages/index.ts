@@ -2,11 +2,11 @@ import fs from 'fs';
 import ignore from 'ignore';
 import normalize from 'normalize-path';
 import path from 'path';
+import { tsProject } from '../common';
+import { MAIN_PACKAGE_NAME, SOURCE_PATH } from '../constant';
 import { LOG_TYPE, Logger } from '../logger';
-import { tsProject } from './common';
-import { MAIN_PACKAGE_NAME, SOURCE_PATH } from './constant';
-import { Config, Page } from './type';
-import { extractValue, formatPageDir } from './utils';
+import { Config, Page } from '../type';
+import { extractValue, formatPageDir } from '../utils';
 
 const ACCEPTS_INDEX_FILE = ['index.js', 'index.jsx', 'index.jsx', 'index.tsx'];
 
