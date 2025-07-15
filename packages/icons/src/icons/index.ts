@@ -1,3 +1,3 @@
-import './fonts/font.css';
+import './fonts/heathen-icon-font.css';
 
 export * from './components';

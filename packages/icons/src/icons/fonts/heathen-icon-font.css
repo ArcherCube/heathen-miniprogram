@@ -1,12 +1,11 @@
 @font-face {
-  font-family: "font";
-  src: url('font.woff2?t=1739759419772') format('woff2'),
-  url('font.woff?t=1739759419772') format('woff'),
-  url('font.ttf?t=1739759419772') format('truetype');
+  font-family: "heathen-icon-font";
+  src: url('heathen-icon-font.woff?t=1752558179438') format('woff'),
+  url('heathen-icon-font.ttf?t=1752558179438') format('truetype');
 }
 
 [class^="heathen-icon-"], [class*=" heathen-icon-"] {
-  font-family: 'font' !important;font-size: inherit;
+  font-family: 'heathen-icon-font' !important;font-size: inherit;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
