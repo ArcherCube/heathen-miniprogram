@@ -1,31 +1,12 @@
-import { Theme, ThemeColor } from '@heathen/theme';
 import { type Config } from 'tailwindcss';
+import { ThemeColor } from './src/theme';
 
 const themeColor: UnionToTuple<ThemeColor> = ['primary', 'black', 'neutral', 'success', 'warning', 'error'] as const;
-
-const varThemeColors = themeColor.reduce(
-  (colorStore, colorName) => {
-    return {
-      ...colorStore,
-      [colorName]: Array.from({ length: 16 }).reduce<Theme['colors'][ThemeColor]>(
-        (colorIndexStore, _, colorIndex) => {
-          return {
-            ...colorIndexStore,
-            [colorIndex + 1]: `var(--${colorName}-${colorIndex + 1})`,
-          };
-        },
-        {} as Theme['colors'][ThemeColor],
-      ),
-    };
-  },
-  {} as Theme['colors'],
-);
 
 export default {
   content: ['./src/**/*.{jsx,tsx,ts}'],
   theme: {
     extend: {
-      colors: varThemeColors,
       borderRadius: Array.from({ length: 750 + 1 }).reduce<Record<number, string>>((store, _, index) => {
         return {
           ...store,
@@ -60,11 +41,26 @@ export default {
         number: ['DIN\\ Alternate'],
         alimm: ['Alimama\\ ShuHeiTi'],
       },
+      colors: themeColor.reduce(
+        (colorStore, colorName) => {
+          return {
+            ...colorStore,
+            [colorName]: Array.from({ length: 16 }).reduce<Record<number, string>>((colorIndexStore, _, colorIndex) => {
+              return {
+                ...colorIndexStore,
+                [colorIndex + 1]: `var(--${colorName}-${colorIndex + 1})`,
+              };
+            }, {}),
+          };
+        },
+        {} as Record<(typeof themeColor)[number], Record<string, string>>,
+      ),
       height: {
-        'tab-bar': '100px',
+        'tab-bar': 'var(--tab-bar-height)',
       },
       boxShadow: {
         default: '0 12px 12px 0 rgb(0 0 0 / 5%)',
+        'tab-bar': '0 4px 24px 0 rgb(0 0 0 / 8%)',
       },
     },
   },

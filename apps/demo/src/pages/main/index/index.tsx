@@ -1,6 +1,6 @@
-import { Button, NavigationBar, View } from '@heathen/components';
+import { Button, NavigationBar, Page, View } from '@heathen/components';
 
-const Page: React.FC = () => {
+export default Page(() => {
   return (
     <>
       <NavigationBar>Home</NavigationBar>
@@ -12,6 +12,4 @@ const Page: React.FC = () => {
       </View>
     </>
   );
-};
-
-export default Page;
+});

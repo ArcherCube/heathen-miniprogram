@@ -1,0 +1,17 @@
+.heathen-digit-number-scroll {
+  position: relative;
+  pointer-events: none;
+  width: fit-content;
+  height: 1em;
+  overflow: hidden;
+}
+
+.heathen-digit-number-scroll-list {
+  position: relative;
+}
+
+.heathen-digit-number-scroll-item {
+  position: relative;
+  line-height: 1;
+  text-align: center;
+}

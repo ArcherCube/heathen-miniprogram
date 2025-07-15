@@ -1,7 +1,8 @@
 import type { PickerViewProps as TaroPickerViewProps } from '@tarojs/components';
 import { usePropsValue } from '@heathen/hooks';
 import { mergeProps, NativeProps } from '@heathen/utils';
-import { useCreation, useMemoizedFn } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { PickerOptionValue } from '../picker';
 import { PickerView } from '../picker/picker-view';
 import { generateDateTimeColumns } from './generate-date-time-columns';

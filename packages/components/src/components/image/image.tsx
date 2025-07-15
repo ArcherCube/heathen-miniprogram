@@ -1,6 +1,7 @@
 import { Image as TaroImage, ImageProps as TaroImageProps, View } from '@tarojs/components';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
-import { useCreation, useMemoizedFn } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { devWarning } from '../../utils/dev-log';

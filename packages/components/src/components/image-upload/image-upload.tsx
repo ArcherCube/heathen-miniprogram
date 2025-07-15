@@ -1,9 +1,9 @@
+import { PropsValueOptions, usePropsValue } from '@heathen/hooks';
+import { AddImageOutlined, CrossCircleOutlined, CrossOutlined, LoadingOutlined } from '@heathen/icons';
+import { generateUUID, mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
-import { PropsValueOptions, usePropsValue } from '@heathen/hooks';
-import { CrossCircleOutlined, CrossOutlined, LoadingOutlined, AddImageOutlined } from '@heathen/icons';
-import { generateUUID, mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
-import { useMemoizedFn } from 'ahooks';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { useConfig } from '../config-provider';
 import { Image } from '../image';
 

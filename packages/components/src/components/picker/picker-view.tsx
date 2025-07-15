@@ -1,10 +1,11 @@
-import { PickerViewColumn as TaroPickerViewColumn, PickerView as TaroPickerView, View } from '@tarojs/components';
 import type { CommonEventFunction, PickerViewProps as TaroPickerViewProps } from '@tarojs/components';
+import { PickerView as TaroPickerView, PickerViewColumn as TaroPickerViewColumn, View } from '@tarojs/components';
 import { usePropsValue } from '@heathen/hooks';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
-import { useCreation, useMemoizedFn } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { useEffect, useState } from 'react';
-import { PickerOptionValue, PickerOption, PickerColumn } from './type';
+import { PickerColumn, PickerOption, PickerOptionValue } from './type';
 
 export type PickerViewProps = {
   value?: PickerOptionValue[];

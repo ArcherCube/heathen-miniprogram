@@ -1,4 +1,4 @@
-import { View } from '@tarojs/components';
+import { View, Form as TaroForm } from '@tarojs/components';
 import { mergeProps, NativeProps } from '@heathen/utils';
 import classNames from 'clsx';
 import type { FormInstance as RCFormInstance, FormProps as RcFormProps } from 'rc-field-form';
@@ -77,6 +77,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
       ref={ref as ForwardedRef<RCFormInstance>}
       {...formProps}
       validateMessages={formProps.validateMessages}
+      component={TaroForm}
     >
       <FormContext.Provider
         value={{

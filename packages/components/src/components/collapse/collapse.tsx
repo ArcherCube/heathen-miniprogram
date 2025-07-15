@@ -4,7 +4,8 @@ import Taro from '@tarojs/taro';
 import { usePropsValue } from '@heathen/hooks';
 import { DownOutlined } from '@heathen/icons';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
-import { useCreation, useMemoizedFn } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 

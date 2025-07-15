@@ -4,8 +4,6 @@ import { PopupProps } from './popup';
 const maskAnimation: NonNullable<LayerProps['animation']>['mask'] = {
   close: [
     {
-      duration: 200,
-      ease: 'ease-out',
       style: {
         opacity: 0,
       },
@@ -13,8 +11,6 @@ const maskAnimation: NonNullable<LayerProps['animation']>['mask'] = {
   ],
   show: [
     {
-      duration: 300,
-      ease: 'ease-out',
       style: {
         opacity: 1,
       },
@@ -29,15 +25,11 @@ export const ANIMATION_CONFIG: Record<NonNullable<PopupProps['placement']>, Laye
       show: [
         {
           style: { opacity: 1, transform: 'translate(0,0)', transformOrigin: '50% 100%' },
-          ease: 'ease-out',
-          duration: 300,
         },
       ],
       close: [
         {
-          style: { opacity: 0, transform: 'translate(0,40%)', transformOrigin: '50% 100%' },
-          ease: 'ease-out',
-          duration: 200,
+          style: { opacity: 0, transform: 'translate(0,100%)', transformOrigin: '50% 100%' },
         },
       ],
     },
@@ -48,15 +40,11 @@ export const ANIMATION_CONFIG: Record<NonNullable<PopupProps['placement']>, Laye
       show: [
         {
           style: { opacity: 1, transform: 'translate(0,0)', transformOrigin: '50% 100%' },
-          ease: 'ease-out',
-          duration: 300,
         },
       ],
       close: [
         {
-          style: { opacity: 0, transform: 'translate(0,-40%)', transformOrigin: '50% 100%' },
-          ease: 'ease-out',
-          duration: 200,
+          style: { opacity: 0, transform: 'translate(0,-100%)', transformOrigin: '50% 100%' },
         },
       ],
     },
@@ -67,15 +55,11 @@ export const ANIMATION_CONFIG: Record<NonNullable<PopupProps['placement']>, Laye
       show: [
         {
           style: { opacity: 1, transform: 'translate(0,0)', transformOrigin: '100% 50%' },
-          ease: 'ease-out',
-          duration: 300,
         },
       ],
       close: [
         {
-          style: { opacity: 0, transform: 'translate(-40%,0)', transformOrigin: '100% 50%' },
-          ease: 'ease-out',
-          duration: 200,
+          style: { opacity: 0, transform: 'translate(-100%,0)', transformOrigin: '100% 50%' },
         },
       ],
     },
@@ -86,15 +70,11 @@ export const ANIMATION_CONFIG: Record<NonNullable<PopupProps['placement']>, Laye
       show: [
         {
           style: { opacity: 1, transform: 'translate(0,0)', transformOrigin: '100% 50%' },
-          ease: 'ease-out',
-          duration: 300,
         },
       ],
       close: [
         {
-          style: { opacity: 0, transform: 'translate(40%,0)', transformOrigin: '100% 50%' },
-          ease: 'ease-out',
-          duration: 200,
+          style: { opacity: 0, transform: 'translate(100%,0)', transformOrigin: '100% 50%' },
         },
       ],
     },

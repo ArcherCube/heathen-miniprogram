@@ -1,13 +1,15 @@
 import { CheckOutlined, CrossOutlined } from '@heathen/icons';
-import { createRenderInstance, RenderInstanceHandle, mergeProps } from '@heathen/utils';
+import { mergeProps } from '@heathen/utils';
+import { Page } from '../page';
 import { Toast, ToastProps } from './toast';
 
-const ToastInstance = createRenderInstance(Toast);
 // toast为单例
-let toastHandler: RenderInstanceHandle<ToastProps> | undefined;
-let toastTimer: NodeJS.Timeout;
+const toastHandler: { current: ReturnType<typeof Page.appendComponent<typeof Toast>> | undefined } = {
+  current: undefined,
+};
+const toastTimer: { current: NodeJS.Timeout | undefined } = { current: undefined };
 
-export type ToastMethodOption = Omit<ToastProps, 'visible'> & {
+export type ToastMethodOption = Omit<ToastProps, 'visible' | 'rootPortal'> & {
   duration?: number;
 };
 
@@ -15,33 +17,38 @@ const defaultOption: Required<Pick<ToastMethodOption, 'duration'>> = {
   duration: 2000,
 };
 
-export const close = () => {
-  clearTimeout(toastTimer);
-  return toastHandler?.update({
-    visible: false,
-  });
-};
-
 export const show = (o: ToastMethodOption | string) => {
-  toastHandler?.destory();
+  toastHandler.current?.destory();
+  clearTimeout(toastTimer.current);
 
   const option = mergeProps(defaultOption, typeof o === 'string' ? ({ message: o } satisfies ToastMethodOption) : o);
 
-  toastHandler = ToastInstance.create({
+  const closeTimer = setTimeout(() => {
+    handler?.update({
+      visible: false,
+    });
+  }, option.duration);
+
+  const handler = Page.appendComponent(Toast, {
     ...option,
     visible: true,
     onClose: () => {
-      close();
+      handler?.update({
+        visible: false,
+      });
+      clearTimeout(closeTimer);
     },
     afterClose: () => {
-      toastHandler?.destory();
+      handler?.destory();
       option.afterClose?.();
+    },
+    rootPortal: {
+      enable: false,
     },
   });
 
-  toastTimer = setTimeout(() => {
-    close();
-  }, option.duration);
+  toastHandler.current = handler;
+  toastTimer.current = closeTimer;
 };
 
 export const success = (option: Omit<ToastMethodOption, 'icon'> | string) => {

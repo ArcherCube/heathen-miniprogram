@@ -18,12 +18,12 @@
   ],
   "author": "",
   "dependencies": {
+    "@heathen/colors": "workspace:*",
     "@heathen/components": "workspace:*",
     "@heathen/hooks": "workspace:*",
     "@heathen/icons": "workspace:*",
     "@heathen/polyfill": "workspace:*",
     "@heathen/router": "workspace:*",
-    "@heathen/theme": "workspace:*",
     "@heathen/utils": "workspace:*"
   },
   "devDependencies": {

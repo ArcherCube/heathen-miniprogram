@@ -1,0 +1,4 @@
+import './style';
+
+export { Tabs } from './tabs';
+export type { TabsProps } from './tabs';

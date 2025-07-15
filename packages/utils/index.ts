@@ -8,3 +8,6 @@ export * from './src/json';
 export * from './src/uuid';
 export * from './src/abortable-promise';
 export * from './src/element';
+export * from './src/taro';
+export * from './src/number';
+export * from './src/event-bus';

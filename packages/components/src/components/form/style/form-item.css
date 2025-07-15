@@ -5,11 +5,11 @@
   flex-direction: var(--layout, row);
   background-color: transparent;
 
-  .taroify-cell__title {
+  .heathen-cell__title {
     flex: var(--label-flex, none);
   }
 
-  .taroify-cell__value {
+  .heathen-cell__value {
     flex: var(--wrapper-flex, auto);
     text-align: var(--wrapper-align, left);
     width: 100%;
@@ -37,7 +37,6 @@
 
     .heathen-form-item-label-help {
       margin-left: 8px;
-      cursor: pointer;
     }
   }
 

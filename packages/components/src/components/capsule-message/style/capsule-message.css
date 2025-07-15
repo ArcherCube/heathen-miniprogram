@@ -1,0 +1,11 @@
+.heathen-capsule-message {
+  position: relative;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.heathen-capsule-message-holder {
+  overflow: hidden;
+}

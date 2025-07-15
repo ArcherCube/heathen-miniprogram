@@ -1,8 +1,10 @@
+import { getBoundingClientRect, mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { View } from '@tarojs/components';
 import { TaroElement } from '@tarojs/runtime';
 import Taro from '@tarojs/taro';
-import { getBoundingClientRect, mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
-import { useCreation, useMemoizedFn, useMount } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
+import useMount from 'ahooks/es/useMount';
 import { useEffect, useRef, useState } from 'react';
 
 export type ScrollTextProps = {
@@ -10,12 +12,19 @@ export type ScrollTextProps = {
   delay?: number;
   /** 滚动的速度 */
   speed?: number;
+  /** 每次滚动开始的回调 */
+  onScrollStart?: () => void;
+  /** 每次滚动结束的回调 */
+  onScrollEnd?: () => void;
+  /** 是否无限滚动 */
+  infinite?: boolean;
   children?: React.ReactNode;
 } & NativeProps;
 
-const defaultProps: Required<Pick<ScrollTextProps, 'delay' | 'speed'>> = {
+const defaultProps: Required<Pick<ScrollTextProps, 'delay' | 'speed' | 'infinite'>> = {
   delay: 1000,
   speed: 30,
+  infinite: true,
 };
 
 export const ScrollText: React.FC<ScrollTextProps> = (p) => {
@@ -31,6 +40,8 @@ export const ScrollText: React.FC<ScrollTextProps> = (p) => {
   const delayTimerRef = useRef<NodeJS.Timeout>();
 
   const startScroll = useMemoizedFn(() => {
+    props.onScrollStart?.();
+
     setOffset((current) => {
       const distance = Math.abs(-textWidth - current);
       setDuration(distance / props.speed);
@@ -43,9 +54,13 @@ export const ScrollText: React.FC<ScrollTextProps> = (p) => {
     setOffset(wrapperWidth);
     setDuration(0);
 
-    Taro.nextTick(() => {
-      startScroll();
-    });
+    props.onScrollEnd?.();
+
+    if (props.infinite) {
+      Taro.nextTick(() => {
+        startScroll();
+      });
+    }
   });
 
   useMount(() => {

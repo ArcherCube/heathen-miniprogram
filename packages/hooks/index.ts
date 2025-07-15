@@ -11,3 +11,6 @@ export { useStorageInfo } from './src/use-storage-info';
 
 /** useCascader */
 export { useCascader } from './src/use-cascader';
+
+/** useStorageState */
+export { useStorageState } from './src/use-storage-state';

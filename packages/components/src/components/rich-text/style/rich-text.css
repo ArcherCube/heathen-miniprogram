@@ -139,4 +139,8 @@
     font-size: smaller;
     vertical-align: sub;
   }
+
+  .span {
+    display: inline;
+  }
 }

@@ -1,13 +1,13 @@
 import { View } from '@tarojs/components';
 import { usePropsValue } from '@heathen/hooks';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
-import { useCreation, useMemoizedFn } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { useEffect, useState } from 'react';
 import { Button } from '../button';
 import { Popup, PopupProps } from '../popup';
 import { PickerView, PickerViewProps } from './picker-view';
 import { PickerOption, PickerOptionValue } from './type';
-import { RootPortal } from '../root-portal';
 
 export type PickerProps = {
   /** 点击取消/蒙层时的回调 */
@@ -96,30 +96,28 @@ export const Picker: React.FC<PickerProps> = (p) => {
   return (
     <>
       {childElement}
-      <RootPortal>
-        {withNativeProps(
-          props,
-          <Popup visible={visible} onClose={handleCancel} placement={placement} rounded={rounded}>
-            <View className='heathen-picker-popup'>
-              <View className='heathen-picker-popup-header'>
-                <Button className='heathen-picker-popup-header-cancel' variant='text' onClick={handleCancel}>
-                  取消
-                </Button>
-                <View className='heathen-picker-popup-header-title'>{title}</View>
-                <Button
-                  className='heathen-picker-popup-header-confirm'
-                  variant='text'
-                  color='primary'
-                  onClick={handleConfirm}
-                >
-                  确定
-                </Button>
-              </View>
-              <PickerView {...pickerViewProps} value={viewValue} onChange={handleSelect} columns={columns} />
+      {withNativeProps(
+        props,
+        <Popup visible={visible} onClose={handleCancel} placement={placement} rounded={rounded}>
+          <View className='heathen-picker-popup'>
+            <View className='heathen-picker-popup-header'>
+              <Button className='heathen-picker-popup-header-cancel' variant='text' onClick={handleCancel}>
+                取消
+              </Button>
+              <View className='heathen-picker-popup-header-title'>{title}</View>
+              <Button
+                className='heathen-picker-popup-header-confirm'
+                variant='text'
+                color='primary'
+                onClick={handleConfirm}
+              >
+                确定
+              </Button>
             </View>
-          </Popup>,
-        )}
-      </RootPortal>
+            <PickerView {...pickerViewProps} value={viewValue} onChange={handleSelect} columns={columns} />
+          </View>
+        </Popup>,
+      )}
     </>
   );
 };

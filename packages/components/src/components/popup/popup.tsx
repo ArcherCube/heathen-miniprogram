@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
-import { useCreation } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
 import clsx from 'clsx';
 import { Layer, LayerProps } from '../layer';
 import { ANIMATION_CONFIG } from './animation';
@@ -11,7 +11,7 @@ export type PopupProps = {
   /** 弹出的外侧两角是否圆角 */
   rounded?: boolean;
   children?: React.ReactNode;
-} & Pick<LayerProps, 'visible' | 'afterClose' | 'afterShow' | 'onClose' | 'mask' | 'closeOnMaskClick'> &
+} & Pick<LayerProps, 'visible' | 'afterClose' | 'afterShow' | 'onClose' | 'mask' | 'closeOnMaskClick' | 'rootPortal'> &
   NativeProps;
 
 const defaultProps: Required<Pick<PopupProps, 'closeOnMaskClick' | 'placement'>> = {

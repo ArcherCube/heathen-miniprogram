@@ -1,7 +1,8 @@
 import { View } from '@tarojs/components';
 import { PropsValueOptions, usePropsValue } from '@heathen/hooks';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
-import { useCreation, useMemoizedFn } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import isNil from 'lodash-es/isNil';
 import { SetStateAction } from 'react';
 import { CheckboxGroupContext, CheckboxGroupContextType } from './context';

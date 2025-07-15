@@ -1,0 +1,11 @@
+.heathen-digit {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.heathen-digit-char {
+  display: inline-block;
+  line-height: 1;
+  width: fit-content;
+}

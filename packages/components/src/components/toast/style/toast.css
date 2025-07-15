@@ -11,16 +11,15 @@
   padding: 24px 48px;
   overflow: hidden;
   pointer-events: auto;
+  color: white;
 }
 
 .heathen-toast-icon {
   font-size: 100px;
-  color: white;
 }
 
 .heathen-toast-message {
   font-size: 28px;
-  color: white;
   white-space: pre-wrap;
   word-break: break-all;
 }

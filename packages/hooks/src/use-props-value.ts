@@ -1,4 +1,5 @@
-import { useMemoizedFn, useUpdate } from 'ahooks';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
+import useUpdate from 'ahooks/es/useUpdate';
 import { SetStateAction, useRef } from 'react';
 
 export type PropsValueOptions<T, D extends any[] = []> = {

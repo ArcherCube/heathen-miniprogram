@@ -1,4 +1,4 @@
-import { useMemoizedFn } from 'ahooks';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { useState } from 'react';
 import { Button, ButtonProps } from '../button';
 import { ModalProps } from './modal';

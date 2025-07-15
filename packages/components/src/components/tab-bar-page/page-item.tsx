@@ -1,5 +1,5 @@
 import { ScrollView, View } from '@tarojs/components';
-import { useMemoizedFn } from 'ahooks';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import React, { useEffect, useState } from 'react';
 
 export type TabBarPageItemProps = {

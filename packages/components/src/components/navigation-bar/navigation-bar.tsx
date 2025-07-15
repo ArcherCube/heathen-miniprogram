@@ -3,11 +3,12 @@ import Taro, { useRouter } from '@tarojs/taro';
 import { useLayout } from '@heathen/hooks';
 import { HomeOutlined, LeftOutlined } from '@heathen/icons';
 import { NativeProps, withNativeProps } from '@heathen/utils';
-import { useCreation, useMemoizedFn } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import clsx from 'clsx';
 import { useMemo } from 'react';
-import { useConfig } from '../config-provider';
 import { Button } from '../button';
+import { useConfig } from '../config-provider';
 
 export type NavigationBarProps = {
   /** 强制控制返回按钮的显隐 */

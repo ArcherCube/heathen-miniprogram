@@ -54,7 +54,7 @@ const getLayout = () => {
 
 /** 获取布局信息（注意 number 的单位都是 px） */
 export const useLayout = () => {
-  const [layout, setLayout] = useState<Layout>();
+  const [layout, setLayout] = useState<Layout>(getLayout());
 
   useLayoutEffect(() => {
     setLayout(getLayout());

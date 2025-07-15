@@ -17,7 +17,7 @@ export type ModalProps = {
   closeOnAction?: boolean;
   /** 弹窗尾部内容，会覆盖actions */
   footer?: React.ReactNode;
-} & Pick<LayerProps, 'visible' | 'afterClose' | 'afterShow' | 'onClose' | 'mask' | 'closeOnMaskClick'> &
+} & Pick<LayerProps, 'visible' | 'afterClose' | 'afterShow' | 'onClose' | 'mask' | 'closeOnMaskClick' | 'rootPortal'> &
   NativeProps;
 
 const defaultProps: Required<Pick<ModalProps, 'actions' | 'closeOnMaskClick' | 'closeOnAction'>> = {
@@ -30,8 +30,6 @@ const animation: LayerProps['animation'] = {
   mask: {
     close: [
       {
-        duration: 200,
-        ease: 'ease-out',
         style: {
           opacity: 0,
         },
@@ -39,8 +37,6 @@ const animation: LayerProps['animation'] = {
     ],
     show: [
       {
-        duration: 300,
-        ease: 'ease-out',
         style: {
           opacity: 1,
         },
@@ -50,8 +46,6 @@ const animation: LayerProps['animation'] = {
   body: {
     close: [
       {
-        duration: 200,
-        ease: 'ease-out',
         style: {
           opacity: 0,
           transform: 'scale(0.8)',
@@ -60,8 +54,6 @@ const animation: LayerProps['animation'] = {
     ],
     show: [
       {
-        duration: 300,
-        ease: 'ease-out',
         style: {
           opacity: 1,
           transform: 'scale(1,1)',

@@ -1,3 +1,8 @@
+/** 提取对象的必填字段 */
+type RequiredKeys<T> = {
+  [K in keyof T]-?: {} extends Pick<T, K> ? never : K;
+}[keyof T];
+
 /**
  * 联合类型转交叉类型
  */

@@ -1,0 +1,52 @@
+.heathen-textarea {
+  position: relative;
+  display: block;
+  color: var(--neutral-10);
+  width: 100%;
+  min-width: 0;
+  font-size: 28px;
+  line-height: 48px;
+  text-align: left;
+  height: 100%;
+
+  .heathen-textarea-native {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    resize: none;
+    user-select: auto;
+    background: transparent;
+    border: 0;
+    appearance: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: var(--neutral-6);
+    }
+  }
+}
+
+.heathen-textarea-disabled {
+  opacity: 0.7;
+}
+
+.heathen-textarea-count {
+  margin-top: 8px;
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--neutral-8);
+  text-align: right;
+}
+
+.heathen-textarea-placeholder {
+  color: var(--neutral-6);
+}

@@ -1,11 +1,10 @@
-import isNil from 'lodash-es/isNil';
 import assign from 'lodash-es/assign';
 import assignWith from 'lodash-es/assignWith';
 import isUndefined from 'lodash-es/isUndefined';
 
 export function mergeProps<A, B>(a: A, b: B): B & A;
 export function mergeProps<A, B, C>(a: A, b: B, c: C): C & B & A;
-export function mergeProps<A, B, C, D>(a: A, b: B, c: C, d: D): C & B & A & D;
+export function mergeProps<A, B, C, D>(a: A, b: B, c: C, d: D): D & C & B & A;
 export function mergeProps(...items: any[]) {
   function customizer(objValue: any, srcValue: any) {
     return isUndefined(srcValue) ? objValue : srcValue;
@@ -25,7 +24,7 @@ export function mergeProps(...items: any[]) {
  */
 export function propsList<T>(...items: T[]): T | undefined {
   for (let A = 0; A < items.length; ++A) {
-    if (!isNil(items[A])) {
+    if (items[A] !== undefined) {
       return items[A];
     }
   }

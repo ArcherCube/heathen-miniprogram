@@ -58,22 +58,19 @@
 
 .heathen-button-loading-icon {
   animation: rotate 1s linear infinite;
-  color: var(--color);
   opacity: 0;
   font-size: 0;
+  margin-left: 0;
   transition:
     opacity 0.3s ease-out,
-    font-size 0.3s ease-out;
+    font-size 0.3s ease-out,
+    margin-left 0.3s ease-out;
 }
 
 .heathen-button-contained {
   background-color: var(--color);
   color: white;
   border: 0;
-
-  .heathen-button-loading-icon {
-    color: white;
-  }
 }
 
 .heathen-button-text {

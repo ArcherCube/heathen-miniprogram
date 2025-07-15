@@ -1,0 +1,11 @@
+.heathen-dynamic-island {
+  position: relative;
+  background-color: rgb(255 255 255 / 70%);
+  width: fit-content;
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+}
+
+.heathen-dynamic-island-layer-body .heathen-layer-body {
+  overflow: hidden;
+}

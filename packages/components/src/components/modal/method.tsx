@@ -1,9 +1,8 @@
-import { createRenderInstance, mergeProps } from '@heathen/utils';
+import { mergeProps } from '@heathen/utils';
+import { Page } from '../page';
 import { Modal, ModalProps } from './modal';
 
-const ModalInstance = createRenderInstance(Modal);
-
-export type ModalMethodOption = Omit<ModalProps, 'visible'>;
+export type ModalMethodOption = Omit<ModalProps, 'visible' | 'rootPortal'>;
 
 const defaultOption: Required<Pick<ModalMethodOption, 'closeOnMaskClick'>> = {
   closeOnMaskClick: false,
@@ -13,7 +12,7 @@ export const show = (o: ModalMethodOption | string) => {
   const option = mergeProps(defaultOption, typeof o === 'string' ? ({} satisfies ModalMethodOption) : o);
 
   return new Promise<void>((resolve) => {
-    const handler = ModalInstance.create({
+    const handler = Page.appendComponent(Modal, {
       ...option,
       visible: true,
       onClose: () => {
@@ -25,6 +24,9 @@ export const show = (o: ModalMethodOption | string) => {
         handler?.destory();
         option.afterClose?.();
         resolve();
+      },
+      rootPortal: {
+        enable: false,
       },
     });
   });

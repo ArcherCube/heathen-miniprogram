@@ -1,37 +1,16 @@
-/** TODO:
- * 1、Taroify 需要本地化，目前暂时直接导出需要用到的组件和样式（样式变成自动引入后要注意与主应用tailwind优先级的问题）
- */
-
-import '@taroify/core/cell/style';
-import '@taroify/core/input/style';
-import '@taroify/core/search/style';
-import '@taroify/core/slider/style';
-import '@taroify/core/tabs/style';
-import '@taroify/core/textarea/style';
-import '@taroify/core/swipe-cell/style';
-import './taroify.css';
-
+/** 全局样式 */
 import './src/style';
 
+/** 导出taro原本的组件 */
 export * from '@tarojs/components';
-
-export { Cell, Input, Search, Slider, Tabs, Textarea, SwipeCell } from '@taroify/core';
 
 /** ConfigProvider */
 export { ConfigProvider, useConfig } from './src/components/config-provider';
 export type { ConfigProviderProps } from './src/components/config-provider';
 
-/** RootPortal */
-export { RootPortal } from './src/components/root-portal';
-export type { RootPortalProps } from './src/components/root-portal';
-
 /** Button */
 export { Button } from './src/components/button';
 export type { ButtonProps } from './src/components/button';
-
-/** Checkbox */
-export { Checkbox } from './src/components/checkbox';
-export type { CheckboxProps, CheckboxGroupProps } from './src/components/checkbox';
 
 /** ImageUpload */
 export { ImageUpload } from './src/components/image-upload';
@@ -79,6 +58,7 @@ export type { DatePickerProps, DatePickerViewProps, DateTimeField } from './src/
 export { TabBar } from './src/components/tab-bar';
 export type { TabBarProps, TabBarItem } from './src/components/tab-bar';
 
+/** Layer */
 export { Layer } from './src/components/layer';
 export type { LayerProps } from './src/components/layer';
 
@@ -114,6 +94,49 @@ export type { TabBarPageProps } from './src/components/tab-bar-page';
 export { Skeleton } from './src/components/skeleton';
 export type { SkeletonProps } from './src/components/skeleton';
 
+/** Checkbox */
+export { Checkbox } from './src/components/checkbox';
+export type { CheckboxProps } from './src/components/checkbox';
+
 /** ScrollText */
 export { ScrollText } from './src/components/scroll-text';
 export type { ScrollTextProps } from './src/components/scroll-text';
+
+/** Cell */
+export { Cell } from './src/components/cell';
+export type { CellProps } from './src/components/cell';
+
+/** Input */
+export { Input } from './src/components/input';
+export type { InputProps } from './src/components/input';
+
+/** Textarea */
+export { Textarea } from './src/components/textarea';
+export type { TextareaProps } from './src/components/textarea';
+
+/** Tabs */
+export { Tabs } from './src/components/tabs';
+export type { TabsProps } from './src/components/tabs';
+
+/** Page */
+export { Page } from './src/components/page';
+
+/** Digit */
+export { Digit } from './src/components/digit';
+export type { DigitProps, DigitValue } from './src/components/digit';
+
+/** ScrollView */
+export { ScrollView } from './src/components/scroll-view';
+export type { ScrollViewProps } from './src/components/scroll-view';
+
+/** Badge */
+export { Badge } from './src/components/badge';
+export type { BadgeProps, BadgePosition } from './src/components/badge';
+
+/** DynamicIsland */
+export { DynamicIsland } from './src/components/dynamic-island';
+export type { DynamicIslandProps } from './src/components/dynamic-island';
+
+/** CapsuleMessage */
+export { CapsuleMessage } from './src/components/capsule-message';
+export type { CapsuleMessageProps } from './src/components/capsule-message';

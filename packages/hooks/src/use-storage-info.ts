@@ -1,5 +1,6 @@
 import Taro from '@tarojs/taro';
-import { useMemoizedFn, useMount } from 'ahooks';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
+import useMount from 'ahooks/es/useMount';
 import { useState } from 'react';
 
 export type UseStorageInfoResult = {

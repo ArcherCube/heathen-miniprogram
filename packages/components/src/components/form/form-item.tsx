@@ -1,7 +1,6 @@
-import Cell, { CellProps } from '@taroify/core/cell';
 import { ITouchEvent, Label, View } from '@tarojs/components';
 import { NativeProps, withNativeProps } from '@heathen/utils';
-import { useMemoizedFn } from 'ahooks';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import classNames from 'clsx';
 import { Field, FormInstance } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
@@ -10,6 +9,7 @@ import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
 import type { FC, MutableRefObject, ReactNode } from 'react';
 import React, { useContext, useRef, useState } from 'react';
 import { devWarning } from '../../utils/dev-log';
+import { Cell, type CellProps } from '../cell';
 import { FormContext, NoStyleItemContext } from './context';
 import type { FormLayout } from './index';
 import { isSafeSetRefComponent, toArray } from './utils';
@@ -55,7 +55,7 @@ export type FormItemProps = Pick<
     labelCol?: { flex: React.CSSProperties['flex'] };
     wrapperCol?: { flex: React.CSSProperties['flex'] };
     align?: React.CSSProperties['textAlign'];
-  } & NativeProps;
+  } & NativeProps<'--gap'>;
 
 interface MemoInputProps {
   value: any;

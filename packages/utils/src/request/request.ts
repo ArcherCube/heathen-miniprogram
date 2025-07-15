@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro';
 import { mergeProps } from '../merge-props';
 
-export type RequestConfig = Omit<Taro.request.Option, 'url'> & {
+export type RequestConfig = Omit<Taro.request.Option, 'url' | 'data'> & {
   /** 接口基础路径 */
   baseUrl?: string;
 };
@@ -24,10 +24,6 @@ export const createRequest = (_config: (() => RequestConfig) | RequestConfig) =>
       header: {
         ...defaultOption.header,
         ...option.header,
-      },
-      data: {
-        ...defaultOption.data,
-        ...option.data,
       },
     });
   };

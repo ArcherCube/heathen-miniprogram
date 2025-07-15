@@ -1,7 +1,8 @@
 import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import { mergeProps, NativeProps } from '@heathen/utils';
-import { useCreation, useMemoizedFn } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { useState } from 'react';
 import { TabBar, TabBarItem } from '../tab-bar';
 import { TabBarPageItem } from './page-item';
@@ -9,7 +10,7 @@ import { TabBarPageItem } from './page-item';
 type TabBarPageConfigItem = TabBarItem & {
   component?: React.ReactNode;
   /** 定义后，将会打开新页面而不是切换tabKey */
-  redirectTo?: () => any;
+  navigateTo?: () => any;
 };
 
 export type TabBarPageProps = {
@@ -28,7 +29,7 @@ export const TabBarPage: React.FC<TabBarPageProps> = (p) => {
   const screenWidth = useCreation(() => Taro.getWindowInfo().screenWidth, []);
 
   const renderableConfig = useCreation(() => {
-    return props.config.filter((item) => !item.redirectTo);
+    return props.config.filter((item) => !item.navigateTo);
   }, [props.config]);
 
   const currentIndex = useCreation(() => {
@@ -39,8 +40,8 @@ export const TabBarPage: React.FC<TabBarPageProps> = (p) => {
 
   const handleChangeTab = useMemoizedFn((key: string) => {
     const page = props.config.find((config) => config.key === key);
-    if (page?.redirectTo) {
-      page.redirectTo?.();
+    if (page?.navigateTo) {
+      page.navigateTo?.();
     } else {
       setCurrentKey(key);
     }

@@ -2,7 +2,8 @@ import { View } from '@tarojs/components';
 import { usePropsValue } from '@heathen/hooks';
 import { CheckOutlined } from '@heathen/icons';
 import { mergeProps, NativeProps, propsList, withNativeProps } from '@heathen/utils';
-import { useCreation, useMemoizedFn } from 'ahooks';
+import useCreation from 'ahooks/es/useCreation';
+import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import clsx from 'clsx';
 import { useContext } from 'react';
 import { CheckboxGroupContext } from './context';
@@ -99,7 +100,7 @@ export const Checkbox: React.FC<CheckboxProps> = (p) => {
       <View className='heathen-checkbox-icon'>
         <CheckOutlined />
       </View>
-      {props.children}
+      <View className='heathen-checkbox-content'>{props.children}</View>
     </View>,
   );
 };

@@ -1,0 +1,76 @@
+.heathen-cell {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: 20px 32px;
+  overflow: hidden;
+  font-size: 28px;
+  line-height: 48px;
+  background: white;
+
+  &::after {
+    position: absolute;
+    box-sizing: border-box;
+    pointer-events: none;
+    content: " ";
+    right: 24px;
+    bottom: 0;
+    left: 24px;
+    border-bottom: 2px solid #ebedf0;
+    transform: scaleY(0.5);
+  }
+
+  &:last-child::after,
+  &--borderless::after {
+    display: none;
+  }
+
+  &__title {
+    flex: 1;
+  }
+
+  &__brief {
+    margin-top: 8px;
+    font-size: 24px;
+    line-height: 36px;
+    color: #969799;
+  }
+
+  &--start {
+    align-items: flex-start;
+  }
+
+  &--center {
+    align-items: center;
+  }
+
+  &--end {
+    align-items: flex-end;
+  }
+
+  &--clickable {
+    &:active {
+      background: #f2f3f5;
+    }
+  }
+
+  &__value {
+    flex: 1;
+    color: #969799;
+    text-align: right;
+
+    &--alone {
+      color: #262626;
+      text-align: left;
+    }
+  }
+
+  &__right-icon {
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    color: #969799;
+  }
+}

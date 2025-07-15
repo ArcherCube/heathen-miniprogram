@@ -1,3 +1,4 @@
+import { ViewProps } from '@tarojs/components';
 import React from 'react';
 import { UploadFile } from '../image-upload/image-upload';
 
@@ -18,6 +19,7 @@ export type ConfigContextType = {
     /** 获取主页路径的方法。当当前不在主页中时，默认会展示主页按钮 */
     homePage: string;
   };
+  Page: ViewProps;
 };
 
 export const defaultConfig: ConfigContextType = {
@@ -34,6 +36,9 @@ export const defaultConfig: ConfigContextType = {
   NavigationBar: {
     homePage: '',
     goBack: () => console.warn('[ConfigProvider]: you are not config the goBack method.'),
+  },
+  Page: {
+    id: 'root',
   },
 };
 

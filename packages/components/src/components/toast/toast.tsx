@@ -6,7 +6,7 @@ export type ToastProps = {
   message?: React.ReactNode;
   icon?: React.ReactNode;
   mask?: Extract<LayerProps['mask'], 'none' | 'transparent'>;
-} & Pick<LayerProps, 'visible' | 'afterClose' | 'afterShow' | 'onClose' | 'closeOnMaskClick'> &
+} & Pick<LayerProps, 'visible' | 'afterClose' | 'afterShow' | 'onClose' | 'closeOnMaskClick' | 'rootPortal'> &
   NativeProps;
 
 const defaultProps: Required<Pick<ToastProps, 'mask'>> = {
@@ -17,8 +17,6 @@ const animation: LayerProps['animation'] = {
   mask: {
     close: [
       {
-        duration: 200,
-        ease: 'ease-out',
         style: {
           opacity: 0,
         },
@@ -26,8 +24,6 @@ const animation: LayerProps['animation'] = {
     ],
     show: [
       {
-        duration: 300,
-        ease: 'ease-out',
         style: {
           opacity: 1,
         },
@@ -37,8 +33,6 @@ const animation: LayerProps['animation'] = {
   body: {
     close: [
       {
-        duration: 200,
-        ease: 'ease-out',
         style: {
           opacity: 0,
         },
@@ -46,8 +40,6 @@ const animation: LayerProps['animation'] = {
     ],
     show: [
       {
-        duration: 300,
-        ease: 'ease-out',
         style: {
           opacity: 1,
         },
