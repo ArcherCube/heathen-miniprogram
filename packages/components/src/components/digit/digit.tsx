@@ -8,7 +8,7 @@ import { useRef, useState } from 'react';
 import { DigitContext, DigitContextType } from './context';
 import { NumberScroll } from './number-scroll';
 
-type DigitSectionType = 'number' | 'separator' | 'decimalSplit';
+type DigitSectionType = 'number' | 'separator' | 'decimalSplit' | 'minusSign';
 
 type DigitSection =
   | {
@@ -60,6 +60,11 @@ export const Digit: React.FC<DigitProps> = (p) => {
         return {
           value: char,
           type: 'separator',
+        };
+      } else if (char === '-') {
+        return {
+          value: char,
+          type: 'minusSign',
         };
       } else {
         return {
