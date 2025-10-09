@@ -10,7 +10,7 @@ export type TextareaProps = {
   onChange?(value: string): void;
   maxLength?: number;
   showCount?: boolean;
-} & Omit<TaroTextareaProps, 'maxlength' | 'onInput'> &
+} & Omit<TaroTextareaProps, 'maxlength' | 'onInput' | 'disableDefaultPadding'> &
   NativeProps;
 
 const defaultProps: Required<Pick<TextareaProps, 'defaultValue' | 'maxLength'>> = {
@@ -49,6 +49,7 @@ export const Textarea: React.FC<TextareaProps> = (p) => {
         maxlength={maxLength}
         value={value}
         onInput={handleInput}
+        disableDefaultPadding
       />
       {showCount && maxLength && (
         <View className='heathen-textarea-count'>
