@@ -5,14 +5,13 @@
   "appid": "",
   "setting": {
     "urlCheck": true,
-    "es6": true,
-    "enhance": true,
+    "enhance": false,
     "compileHotReLoad": false,
+    "bigPackageSizeSupport": true,
     "postcss": false,
-    "minified": true,
-    "minifyWXML": true,
-    "minifyWXSS": true,
-    "bigPackageSizeSupport": true
+    "minifyWXSS": false,
+    "minifyWXML": false,
+    "es6": false
   },
   "compileType": "miniprogram"
 }
