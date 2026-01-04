@@ -1,5 +1,5 @@
-import { ITouchEvent, Label, View } from '@tarojs/components';
 import { NativeProps, withNativeProps } from '@heathen/utils';
+import { ITouchEvent, Label, View } from '@tarojs/components';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import classNames from 'clsx';
 import { Field, FormInstance } from 'rc-field-form';
@@ -184,7 +184,7 @@ export const FormItem: FC<FormItemProps> = (props) => {
     ...fieldProps
   } = props;
 
-  const { name: formName } = useContext(FormContext);
+  const formContext = useContext(FormContext);
   const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
   const notifyParentMetaChange = useContext(NoStyleItemContext);
 
@@ -297,7 +297,9 @@ export const FormItem: FC<FormItemProps> = (props) => {
             : rules && rules.some((rule) => !!(rule && typeof rule === 'object' && rule.required));
 
         const nameList = toArray(name).length && meta ? meta.name : [];
-        const fieldId = (nameList.length > 0 && formName ? [formName, ...nameList] : nameList).join('_');
+        const fieldId = (nameList.length > 0 && formContext.name ? [formContext.name, ...nameList] : nameList).join(
+          '_',
+        );
 
         if (shouldUpdate && dependencies) {
           devWarning('Form.Item', "`shouldUpdate` and `dependencies` shouldn't be used together.");
@@ -306,6 +308,11 @@ export const FormItem: FC<FormItemProps> = (props) => {
         if (isRenderProps) {
           if ((shouldUpdate || dependencies) && !name) {
             childNode = (children as RenderChildren)(context);
+            if (React.isValidElement(childNode)) {
+              childNode = React.cloneElement<any>(childNode, {
+                disabled: formContext.disabled,
+              });
+            }
           } else {
             if (!(shouldUpdate || dependencies)) {
               devWarning('Form.Item', '`children` of render props only work with `shouldUpdate` or `dependencies`.');
@@ -325,7 +332,11 @@ export const FormItem: FC<FormItemProps> = (props) => {
               '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
             );
           }
-          const childProps = { ...children.props, ...control };
+          const childProps = {
+            ...children.props,
+            ...control,
+            disabled: formContext.disabled,
+          };
 
           if (isSafeSetRefComponent(children)) {
             childProps.ref = (instance: any) => {

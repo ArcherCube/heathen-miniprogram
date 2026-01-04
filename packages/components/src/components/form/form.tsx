@@ -1,5 +1,7 @@
-import { View, Form as TaroForm } from '@tarojs/components';
+import { usePropsValue } from '@heathen/hooks';
 import { mergeProps, NativeProps } from '@heathen/utils';
+import { Form as TaroForm, View } from '@tarojs/components';
+import { useMemoizedFn } from 'ahooks';
 import classNames from 'clsx';
 import type { FormInstance as RCFormInstance, FormProps as RcFormProps } from 'rc-field-form';
 import RcForm from 'rc-field-form';
@@ -35,7 +37,6 @@ export type FormProps = Pick<
   | 'validateMessages'
   | 'validateTrigger'
   | 'onFieldsChange'
-  | 'onFinish'
   | 'onFinishFailed'
   | 'onValuesChange'
   | 'children'
@@ -45,6 +46,7 @@ export type FormProps = Pick<
     footer?: ReactNode;
     labelCol?: { flex: React.CSSProperties['flex'] };
     wrapperCol?: { flex: React.CSSProperties['flex'] };
+    onFinish?: (values: any) => Promise<any> | void;
   };
 
 const defaultProps = defaultFormContext;
@@ -58,16 +60,31 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
     children,
     layout,
     footer,
-    disabled,
+    disabled: propsDisabled,
     labelCol,
     wrapperCol,
     align,
+    onFinish,
     ...formProps
   } = props;
+
+  const [disabled, setDisabled] = usePropsValue({ value: propsDisabled, defaultValue: false });
 
   const items: ReactNode[] = [];
   traverseReactNode(props.children as ReactNode, (child) => {
     items.push(child);
+  });
+
+  const handleFinish = useMemoizedFn((values) => {
+    const result = onFinish?.(values);
+
+    if (result) {
+      setDisabled(true);
+
+      result.finally(() => {
+        setDisabled(false);
+      });
+    }
   });
 
   return (
@@ -76,6 +93,7 @@ export const Form = forwardRef<FormInstance, FormProps>((p, ref) => {
       style={style}
       ref={ref as ForwardedRef<RCFormInstance>}
       {...formProps}
+      onFinish={handleFinish}
       validateMessages={formProps.validateMessages}
       component={TaroForm}
     >

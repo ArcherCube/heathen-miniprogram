@@ -7,7 +7,7 @@ export type FormContextType = {
   name?: string;
   hasFeedback: boolean;
   layout: FormLayout;
-  disabled: boolean;
+  disabled?: boolean;
   // TODO: 临时设计的api，后续需要优化
   labelCol?: { flex: React.CSSProperties['flex'] };
   wrapperCol?: { flex: React.CSSProperties['flex'] };
@@ -21,7 +21,6 @@ export const defaultFormContext: FormContextType = {
   name: undefined,
   hasFeedback: true,
   layout: 'horizontal',
-  disabled: false,
 };
 
 export const FormContext = React.createContext<FormContextType>(defaultFormContext);
