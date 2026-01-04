@@ -11,3 +11,4 @@ export * from './src/element';
 export * from './src/taro';
 export * from './src/number';
 export * from './src/event-bus';
+export * from './src/decorators';
