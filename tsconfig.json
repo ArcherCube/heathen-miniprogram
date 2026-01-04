@@ -11,6 +11,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "resolveJsonModule": true,
+    "experimentalDecorators": false,
     "typeRoots": ["node_modules/@types", "node_modules/@heathen-types"]
   },
   "include": ["./**/*.ts", "./**/*.tsx"],
