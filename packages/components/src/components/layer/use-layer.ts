@@ -1,5 +1,5 @@
-import { TaroElement } from '@tarojs/runtime';
 import { createAbortablePromise, getBoundingClientRect, mergeProps } from '@heathen/utils';
+import { TaroElement } from '@tarojs/runtime';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import useSafeState from 'ahooks/es/useSafeState';
@@ -20,6 +20,8 @@ export type UseLayerOption = {
     body?: AnimationConfig;
   };
 };
+
+const ANIMATION_ERROR_MESSAGE = '[Layer]: animation aborted.';
 
 const defaultFrameTransition: Required<Pick<AnimationFrame, 'ease' | 'duration'>> = {
   ease: 'cubic-bezier(0.32, 0.72, 0, 1)',
@@ -114,10 +116,16 @@ export const useLayer = (option: UseLayerOption) => {
         ]);
       }),
     );
-    animationPromise.then(handleAnimationEnd);
+    animationPromise.then(handleAnimationEnd).catch((e) => {
+      if (e instanceof Error && e.message === ANIMATION_ERROR_MESSAGE) {
+        console.warn(ANIMATION_ERROR_MESSAGE);
+        return;
+      }
+      throw e;
+    });
 
     return () => {
-      animationPromise.abort(new Error('[Layer]: animation aborted.'));
+      animationPromise.abort(new Error(ANIMATION_ERROR_MESSAGE));
     };
   }, [animation, handleAnimationEnd, visible, setBodyStyle, setMaskStyle]);
 
