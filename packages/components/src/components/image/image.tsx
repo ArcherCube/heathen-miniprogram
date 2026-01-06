@@ -6,7 +6,6 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { devWarning } from '../../utils/dev-log';
 import { useConfig } from '../config-provider';
-import { OSS_PROCESS_CONFIG } from './oss-process-config';
 
 const DEFAULT_THUMBNAIL_SCALE = 0.1;
 
@@ -38,14 +37,8 @@ export const Image: React.FC<ImageProps> = (p) => {
   const [renderThumbnail, setRenderThumbnail] = useState<boolean>(false);
 
   const {
-    Image: { imageSrcPrefix, ossType },
+    Image: { imageSrcPrefix },
   } = useConfig();
-
-  const ossConfig = useCreation(() => {
-    if (!ossType) return undefined;
-
-    return OSS_PROCESS_CONFIG[ossType];
-  }, [ossType]);
 
   const fullSrc = useCreation(() => {
     if (!src) return '';
@@ -59,7 +52,6 @@ export const Image: React.FC<ImageProps> = (p) => {
   }, [src]);
 
   const thumbnailSrc = useCreation(() => {
-    if (!ossConfig) return undefined;
     if (!thumbnail) return undefined;
     if (!fullSrc.startsWith('https')) {
       devWarning('Image', 'can not use thumbnail while src is not a oss source.');
@@ -71,7 +63,7 @@ export const Image: React.FC<ImageProps> = (p) => {
     let scaleRate = thumbnail === true ? DEFAULT_THUMBNAIL_SCALE : thumbnail;
 
     const thumbnailSrcUrlObject = new URL(fullSrc);
-    thumbnailSrcUrlObject.searchParams.set(ossConfig.paramKey, `image/resize,p_${Math.round(scaleRate * 100)}`);
+    thumbnailSrcUrlObject.searchParams.set('x-oss-process', `image/resize,p_${Math.round(scaleRate * 100)}`);
 
     return thumbnailSrcUrlObject.toString();
   }, [thumbnail, fullSrc]);

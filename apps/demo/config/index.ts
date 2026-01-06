@@ -105,7 +105,15 @@ export default defineConfig(async (merge, env) => {
         quiet: false,
         stats: true,
       },
+      mini: {
+        sourceMapType: 'cheap-module-source-map',
+      },
     });
   }
-  return merge({}, baseConfig);
+  // 生产构建配置（默认开启压缩混淆等）
+  return merge({}, baseConfig, {
+    mini: {
+      sourceMapType: 'nosources-source-map',
+    },
+  });
 });

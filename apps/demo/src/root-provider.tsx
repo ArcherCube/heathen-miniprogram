@@ -3,7 +3,7 @@ import { ConfigProvider, ConfigProviderProps } from '@heathen/components';
 import Router from '@heathen/router';
 import { useCreation } from 'ahooks';
 import React, { useState } from 'react';
-import { IMAGE_OSS_URL } from './constants/oss';
+import { OSS_URL } from './constants/oss';
 
 export const RootProvider: React.FC<React.PropsWithChildren> = (props) => {
   const [currentTheme, setCurrentTheme] = useState<THEME_TYPE>(THEME_TYPE.DEFAULT);
@@ -37,8 +37,7 @@ export const RootProvider: React.FC<React.PropsWithChildren> = (props) => {
   const componentConfig = useCreation<ConfigProviderProps['config']>(() => {
     return {
       Image: {
-        imageSrcPrefix: IMAGE_OSS_URL,
-        ossType: process.env.TARO_APP_OSS_TYPE,
+        imageSrcPrefix: OSS_URL,
       },
       NavigationBar: {
         goBack: Router.back,

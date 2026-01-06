@@ -6,8 +6,6 @@ export type ConfigContextType = {
   Image: {
     /** 图片组件的路径前缀，一般为oss地址 */
     imageSrcPrefix: string;
-    /** oss的类型，主要用于使用oss的图片处理能力 */
-    ossType?: typeof process.env.TARO_APP_OSS_TYPE;
   };
   ImageUpload: {
     /** 描述图片上传的动作 */
