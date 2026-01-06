@@ -1,6 +1,6 @@
-import { View } from '@tarojs/components';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
-import clsx from 'clsx';
+import { View } from '@tarojs/components';
+import { clsx } from 'clsx';
 
 export type UnsafeAreaProps = {
   position?: 'bottom' | 'top';

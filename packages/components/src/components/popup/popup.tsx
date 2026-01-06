@@ -1,7 +1,7 @@
-import { View } from '@tarojs/components';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
+import { View } from '@tarojs/components';
 import useCreation from 'ahooks/es/useCreation';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { Layer, LayerProps } from '../layer';
 import { ANIMATION_CONFIG } from './animation';
 

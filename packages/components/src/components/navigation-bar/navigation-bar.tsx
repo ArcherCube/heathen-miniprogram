@@ -1,11 +1,11 @@
-import { View } from '@tarojs/components';
-import Taro, { useRouter } from '@tarojs/taro';
 import { useLayout } from '@heathen/hooks';
 import { HomeOutlined, LeftOutlined } from '@heathen/icons';
 import { NativeProps, withNativeProps } from '@heathen/utils';
+import { View } from '@tarojs/components';
+import Taro, { useRouter } from '@tarojs/taro';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { useMemo } from 'react';
 import { Button } from '../button';
 import { useConfig } from '../config-provider';

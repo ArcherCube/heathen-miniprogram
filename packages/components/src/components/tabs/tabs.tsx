@@ -1,8 +1,8 @@
-import { ITouchEvent, ScrollView, View } from '@tarojs/components';
 import { PropsValueOptions, usePropsValue } from '@heathen/hooks';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
+import { ITouchEvent, ScrollView, View } from '@tarojs/components';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import isNil from 'lodash-es/isNil';
 import React, { useId } from 'react';
 

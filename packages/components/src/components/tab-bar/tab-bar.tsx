@@ -1,8 +1,8 @@
-import { View } from '@tarojs/components';
 import { usePropsValue } from '@heathen/hooks';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
+import { View } from '@tarojs/components';
 import { useMemoizedFn } from 'ahooks';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 export type TabBarItem = {
   /** 选中时的图标 */

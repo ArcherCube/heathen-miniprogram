@@ -6,7 +6,7 @@ import { BaseEventOrig } from '@tarojs/components/types/common';
 import { InputProps as TaroInputProps } from '@tarojs/components/types/Input';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { useState } from 'react';
 
 export type InputAlign = 'left' | 'center' | 'right';

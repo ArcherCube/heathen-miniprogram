@@ -3,7 +3,7 @@ import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { Textarea as TaroTextarea, TextareaProps as TaroTextareaProps, View } from '@tarojs/components';
 import { BaseEventOrig } from '@tarojs/components/types/common';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 export type TextareaProps = {
   readonly?: boolean;

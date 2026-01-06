@@ -1,12 +1,12 @@
-import { View } from '@tarojs/components';
-import { TaroElement } from '@tarojs/runtime';
-import Taro from '@tarojs/taro';
 import { usePropsValue } from '@heathen/hooks';
 import { DownOutlined } from '@heathen/icons';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
+import { View } from '@tarojs/components';
+import { TaroElement } from '@tarojs/runtime';
+import Taro from '@tarojs/taro';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
 export type CollapseProps = {

@@ -1,7 +1,7 @@
-import { View } from '@tarojs/components';
 import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
+import { View } from '@tarojs/components';
 import { useCreation } from 'ahooks';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import isNil from 'lodash-es/isNil';
 
 export type BadgePlacement = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
