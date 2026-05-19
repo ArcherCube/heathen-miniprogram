@@ -10,7 +10,6 @@
     "framework": "React"
   },
   "scripts": {
-    "build:router": "pnpm --filter '@heathen/router*' run build",
     "start:demo": "pnpm --filter @heathen-apps/demo run dev:weapp",
     "build:demo": "pnpm --filter @heathen-apps/demo run build:weapp",
     "update:icon": "pnpm --filter @heathen/icons run update",
