@@ -18,7 +18,7 @@ const defaultOption: Required<Pick<ToastMethodOption, 'duration'>> = {
 };
 
 export const show = (o: ToastMethodOption | string) => {
-  toastHandler.current?.destory();
+  toastHandler.current?.destroy();
   clearTimeout(toastTimer.current);
 
   const option = mergeProps(defaultOption, typeof o === 'string' ? ({ message: o } satisfies ToastMethodOption) : o);
@@ -39,7 +39,7 @@ export const show = (o: ToastMethodOption | string) => {
       clearTimeout(closeTimer);
     },
     afterClose: () => {
-      handler?.destory();
+      handler?.destroy();
       option.afterClose?.();
     },
     rootPortal: {

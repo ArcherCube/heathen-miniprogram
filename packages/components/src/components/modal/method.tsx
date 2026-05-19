@@ -21,7 +21,7 @@ export const show = (o: ModalMethodOption | string) => {
         });
       },
       afterClose: () => {
-        handler?.destory();
+        handler?.destroy();
         option.afterClose?.();
         resolve();
       },

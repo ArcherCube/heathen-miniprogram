@@ -17,7 +17,7 @@ const defaultOption: Required<Pick<DynamicIslandMethodOption, 'duration'>> = {
 };
 
 export const show = (o: DynamicIslandMethodOption | string) => {
-  dynamicIslandHandler.current?.destory();
+  dynamicIslandHandler.current?.destroy();
   clearTimeout(dynamicIslandTimer.current);
 
   const option = mergeProps(
@@ -41,7 +41,7 @@ export const show = (o: DynamicIslandMethodOption | string) => {
       clearTimeout(closeTimer);
     },
     afterClose: () => {
-      handler?.destory();
+      handler?.destroy();
       option.afterClose?.();
     },
     rootPortal: {

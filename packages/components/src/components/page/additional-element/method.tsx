@@ -3,8 +3,8 @@ import React from 'react';
 import { AdditionalElementManager } from './manager';
 
 export type Controller<P extends {} = {}> = {
-  update: (props: Partial<P>) => void;
-  destory: () => void;
+  update: (props?: Partial<P>) => void;
+  destroy: () => void;
 };
 
 export const appendComponentToPage = <C extends React.FC<any>>(
@@ -27,13 +27,13 @@ export const appendComponentToPage = <C extends React.FC<any>>(
     map.set(elementId, <Component {...props} />);
   });
   return {
-    update: (newProps: Partial<React.ComponentProps<C>>) => {
+    update: (newProps?: Partial<React.ComponentProps<C>>) => {
       const mergedProps = mergeProps(props, newProps) as React.ComponentProps<C>;
       additionalElementManager.updateElementMap((map) => {
         map.set(elementId, <Component {...mergedProps} />);
       });
     },
-    destory: () => {
+    destroy: () => {
       additionalElementManager.updateElementMap((map) => {
         map.delete(elementId);
       });

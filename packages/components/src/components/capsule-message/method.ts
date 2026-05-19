@@ -29,7 +29,7 @@ const defaultOption: Required<Pick<DynamicIslandMethodOption, 'duration' | 'clos
 };
 
 export const show = (o: DynamicIslandMethodOption | string) => {
-  capsuleMessageHandler.current?.destory();
+  capsuleMessageHandler.current?.destroy();
   clearTimeout(capsuleMessageTimer.current);
 
   const inputOption = typeof o === 'string' ? ({ message: o } satisfies DynamicIslandMethodOption) : o;
@@ -67,7 +67,7 @@ export const show = (o: DynamicIslandMethodOption | string) => {
       option.onClose?.();
     },
     afterClose: () => {
-      handler?.destory();
+      handler?.destroy();
       option.afterClose?.();
     },
     rootPortal: {
