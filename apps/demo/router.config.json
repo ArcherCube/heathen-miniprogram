@@ -6,6 +6,10 @@
       "name": "default",
       "pagePath": "./src/pages/main",
       "isMainPackage": true
+    },
+    {
+      "name": "shop",
+      "pagePath": "./src/pages/shop"
     }
   ]
 }

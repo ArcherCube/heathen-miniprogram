@@ -1,15 +1,21 @@
-import { Button, NavigationBar, Page, View } from '@heathen/components';
+import { useEffect } from 'react';
+import { Page, View } from '@heathen/components';
+import { useIndexRelaunch } from './use-index-relaunch';
+import { usePageReady } from './use-page-ready';
 
 export default Page(() => {
+  const { pageReady } = usePageReady();
+  const { relaunch } = useIndexRelaunch();
+
+  useEffect(() => {
+    if (pageReady) {
+      relaunch();
+    }
+  }, [relaunch, pageReady]);
+
   return (
     <>
-      <NavigationBar>Home</NavigationBar>
-      <View className='px-12'>
-        <View className='text-36 font-bold'>Hello world!</View>
-        <Button color='primary' className='mt-12' block>
-          确定
-        </Button>
-      </View>
+      <View>loading...</View>
     </>
   );
 });

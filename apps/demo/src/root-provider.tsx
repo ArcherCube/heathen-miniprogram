@@ -41,7 +41,7 @@ export const RootProvider: React.FC<React.PropsWithChildren> = (props) => {
       },
       NavigationBar: {
         goBack: Router.back,
-        homePage: '',
+        homePage: Router.getPages().shop.home.path,
       },
       Page: {
         // 全局主题css变量通过page挂载
