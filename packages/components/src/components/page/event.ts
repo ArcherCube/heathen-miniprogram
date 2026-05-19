@@ -1,7 +1,7 @@
-import { TaroElement } from '@tarojs/runtime';
 import { EventBus } from '@heathen/utils';
 import { useMemoizedFn } from 'ahooks';
 import { useEffect } from 'react';
+import { PageContextType } from './context';
 
 export enum PAGE_EVENT_TYPE {
   MOUNT = 'mount',
@@ -9,13 +9,13 @@ export enum PAGE_EVENT_TYPE {
 }
 
 type PageEventMap = {
-  [PAGE_EVENT_TYPE.MOUNT]: { pageRef: React.RefObject<TaroElement> };
+  [PAGE_EVENT_TYPE.MOUNT]: PageContextType;
   [PAGE_EVENT_TYPE.UNMOUNT]: {};
 };
 
 export const pageEvent = new EventBus<PageEventMap>();
 
-export const usePageMount = (callback: (payload: { pageRef: React.RefObject<TaroElement> }) => void) => {
+export const usePageMount = (callback: (payload: PageContextType) => void) => {
   const memoizedCallback = useMemoizedFn(callback);
 
   useEffect(() => {

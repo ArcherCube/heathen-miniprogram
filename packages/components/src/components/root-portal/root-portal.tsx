@@ -3,7 +3,6 @@ import { createPortal } from '@tarojs/react';
 import { document } from '@tarojs/runtime';
 import { RouterInfo, useRouter } from '@tarojs/taro';
 import { useCreation } from 'ahooks';
-import React from 'react';
 import { usePage } from '../page/use-page';
 
 export type RootPortalProps = {
@@ -27,13 +26,13 @@ const defaultProps: Required<Pick<RootPortalProps, 'enable'>> = {
 export const RootPortal: React.FC<RootPortalProps> = (p) => {
   const props = mergeProps(defaultProps, p);
 
-  const { rootElementRef } = usePage();
+  const { rootPortalElementRef } = usePage();
 
   const router = useRouter() as RouterExtInfo | null;
 
   const rootElement = useCreation(() => {
     if (props.enable) {
-      return rootElementRef?.current ?? document.getElementById(router?.$taroPath);
+      return rootPortalElementRef?.current ?? document.getElementById(router?.$taroPath);
     }
     return undefined;
   }, [router?.$taroPath, props.enable]);
@@ -44,5 +43,5 @@ export const RootPortal: React.FC<RootPortalProps> = (p) => {
   if (!rootElement) {
     return <></>;
   }
-  return <>{createPortal(props.children, rootElement) as any as React.ReactPortal}</>;
+  return <>{createPortal(props.children, rootElement)}</>;
 };

@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components';
 import { TaroElement } from '@tarojs/runtime';
-import { useMount, useUnmount } from 'ahooks';
+import { useCreation, useMount, useUnmount } from 'ahooks';
 import React, { useRef } from 'react';
 import { useConfig } from '../config-provider';
 import { AdditionalElement } from './additional-element';
@@ -12,21 +12,24 @@ import { PAGE_EVENT_TYPE, pageEvent } from './event';
  */
 export const withPage = <T extends any>(page: React.FC<T>): React.FC<T> => {
   return (props: T) => {
-    const ref = useRef<TaroElement>(null);
+    const rootElementRef = useRef<TaroElement>(null);
+    const rootPortalElementRef = useRef<TaroElement>(null);
     const { Page: pageProps } = useConfig();
 
     useMount(() => {
-      pageEvent.emit(PAGE_EVENT_TYPE.MOUNT, { pageRef: ref });
+      pageEvent.emit(PAGE_EVENT_TYPE.MOUNT, { rootElementRef, rootPortalElementRef });
     });
 
     useUnmount(() => {
       pageEvent.emit(PAGE_EVENT_TYPE.UNMOUNT);
     });
 
+    const providerValue = useCreation(() => ({ rootElementRef, rootPortalElementRef }), []);
     return (
-      <PageContext.Provider value={{ rootElementRef: ref }}>
-        <View {...pageProps} ref={ref}>
+      <PageContext.Provider value={providerValue}>
+        <View {...pageProps} ref={rootElementRef}>
           {page(props)}
+          <View ref={rootPortalElementRef} />
           <AdditionalElement />
         </View>
       </PageContext.Provider>
