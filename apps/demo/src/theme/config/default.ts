@@ -1,5 +1,5 @@
-import { generate } from '@heathen/colors';
 import Taro from '@tarojs/taro';
+import { generate } from '@heathen/colors';
 import { Theme } from '../type';
 
 const parseColorConfig = (colors: string[]): Record<number, string> => {

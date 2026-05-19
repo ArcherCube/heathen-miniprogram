@@ -1,9 +1,9 @@
-import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { Image as TaroImage, ImageProps as TaroImageProps, View } from '@tarojs/components';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { clsx } from 'clsx';
 import { useState } from 'react';
+import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { devWarning } from '../../utils/dev-log';
 import { useConfig } from '../config-provider';
 
@@ -60,7 +60,7 @@ export const Image: React.FC<ImageProps> = (p) => {
 
     setRenderThumbnail(true);
 
-    let scaleRate = thumbnail === true ? DEFAULT_THUMBNAIL_SCALE : thumbnail;
+    const scaleRate = thumbnail === true ? DEFAULT_THUMBNAIL_SCALE : thumbnail;
 
     const thumbnailSrcUrlObject = new URL(fullSrc);
     thumbnailSrcUrlObject.searchParams.set('x-oss-process', `image/resize,p_${Math.round(scaleRate * 100)}`);

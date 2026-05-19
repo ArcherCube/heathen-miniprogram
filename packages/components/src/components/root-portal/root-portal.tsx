@@ -1,8 +1,8 @@
-import { mergeProps } from '@heathen/utils';
 import { createPortal } from '@tarojs/react';
 import { document } from '@tarojs/runtime';
 import { RouterInfo, useRouter } from '@tarojs/taro';
 import { useCreation } from 'ahooks';
+import { mergeProps } from '@heathen/utils';
 import { usePage } from '../page/use-page';
 
 export type RootPortalProps = {

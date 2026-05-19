@@ -1,9 +1,9 @@
 import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
-import { mergeProps, NativeProps } from '@heathen/utils';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { useState } from 'react';
+import { mergeProps, NativeProps } from '@heathen/utils';
 import { TabBar, TabBarItem } from '../tab-bar';
 import { TabBarPageItem } from './page-item';
 

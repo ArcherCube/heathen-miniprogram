@@ -1,5 +1,5 @@
-import { mergeProps } from '@heathen/utils';
 import { ScrollView as TaroScrollView, type ScrollViewProps as TaroScrollViewProps } from '@tarojs/components';
+import { mergeProps } from '@heathen/utils';
 
 export type ScrollViewProps = TaroScrollViewProps;
 

@@ -32,7 +32,7 @@ const MAX_DEPTH = 50;
  * 查询对应ref或指定id的元素的根节点
  */
 const getRootInnerElement = async (target: React.RefObject<TaroElement | undefined> | string) => {
-  let targetElement = typeof target === 'string' ? await getElementById(target) : target.current;
+  const targetElement = typeof target === 'string' ? await getElementById(target) : target.current;
 
   if (!targetElement) {
     throw new Error('[getRootInnerElement]: target element is empty.');

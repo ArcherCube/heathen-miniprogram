@@ -1,10 +1,10 @@
 import { View } from '@tarojs/components';
 import { TaroElement } from '@tarojs/runtime';
-import { formatNumber, getBoundingClientRect, mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { useMount } from 'ahooks';
 import useCreation from 'ahooks/es/useCreation';
 import isNil from 'lodash-es/isNil';
 import { useRef, useState } from 'react';
+import { formatNumber, getBoundingClientRect, mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { DigitContext, DigitContextType } from './context';
 import { NumberScroll } from './number-scroll';
 

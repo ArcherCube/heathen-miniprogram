@@ -1,12 +1,12 @@
-import { useLayout } from '@heathen/hooks';
-import { HomeOutlined, LeftOutlined } from '@heathen/icons';
-import { NativeProps, withNativeProps } from '@heathen/utils';
 import { View } from '@tarojs/components';
 import Taro, { useRouter } from '@tarojs/taro';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { clsx } from 'clsx';
 import { useMemo } from 'react';
+import { useLayout } from '@heathen/hooks';
+import { HomeOutlined, LeftOutlined } from '@heathen/icons';
+import { NativeProps, withNativeProps } from '@heathen/utils';
 import { Button } from '../button';
 import { useConfig } from '../config-provider';
 
@@ -32,8 +32,8 @@ export const NavigationBar: React.FC<React.PropsWithChildren<NavigationBarProps>
   }, [path, pages]);
 
   const [showBackButton, showHomeButton] = useMemo(() => {
-    let _showBackButton = props.showBackButton ?? currentPageDepth > 1;
-    let _showHomeButton = props.showHomeButton ?? homePage !== path;
+    const _showBackButton = props.showBackButton ?? currentPageDepth > 1;
+    const _showHomeButton = props.showHomeButton ?? homePage !== path;
 
     return [_showBackButton, _showHomeButton];
   }, [props.showBackButton, props.showHomeButton, currentPageDepth, homePage, path]);

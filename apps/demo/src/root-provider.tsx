@@ -1,8 +1,8 @@
-import { THEME_TYPE, THEME_TYPE_CONFIG, ThemeProvider } from '@/theme';
-import { ConfigProvider, ConfigProviderProps } from '@heathen/components';
 import Router from '@heathenjs/taro-router';
 import { useCreation } from 'ahooks';
 import React, { useState } from 'react';
+import { ConfigProvider, ConfigProviderProps } from '@heathen/components';
+import { THEME_TYPE, THEME_TYPE_CONFIG, ThemeProvider } from '@/theme';
 import { OSS_URL } from './constants/oss';
 
 export const RootProvider: React.FC<React.PropsWithChildren> = (props) => {

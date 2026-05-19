@@ -1,7 +1,7 @@
-import { usePropsValue } from '@heathen/hooks';
-import { mergeProps } from '@heathen/utils';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
+import { usePropsValue } from '@heathen/hooks';
+import { mergeProps } from '@heathen/utils';
 import { PickerOptionValue } from '../picker';
 import { Picker } from '../picker/picker';
 import { PopupProps } from '../popup';

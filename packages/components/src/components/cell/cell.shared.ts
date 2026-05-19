@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
 import { ViewProps } from '@tarojs/components/types/View';
+import { ReactNode } from 'react';
 
 export type CellSize = 'medium' | 'large';
 

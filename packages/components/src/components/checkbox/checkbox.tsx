@@ -1,11 +1,11 @@
-import { usePropsValue } from '@heathen/hooks';
-import { CheckOutlined } from '@heathen/icons';
-import { mergeProps, NativeProps, propsList, withNativeProps } from '@heathen/utils';
 import { View } from '@tarojs/components';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { clsx } from 'clsx';
 import { useContext } from 'react';
+import { usePropsValue } from '@heathen/hooks';
+import { CheckOutlined } from '@heathen/icons';
+import { mergeProps, NativeProps, propsList, withNativeProps } from '@heathen/utils';
 import { CheckboxGroupContext } from './context';
 
 export type CheckboxProps = {

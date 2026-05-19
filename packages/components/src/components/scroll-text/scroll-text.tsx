@@ -1,4 +1,3 @@
-import { getBoundingClientRect, mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { View } from '@tarojs/components';
 import { TaroElement } from '@tarojs/runtime';
 import Taro from '@tarojs/taro';
@@ -6,6 +5,7 @@ import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import useMount from 'ahooks/es/useMount';
 import { useEffect, useRef, useState } from 'react';
+import { getBoundingClientRect, mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 
 export type ScrollTextProps = {
   /** 滚动的延迟 */

@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components';
-import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
+import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { RootPortal, RootPortalProps } from '../root-portal';
 import { useLayer, UseLayerOption } from './use-layer';
 

@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components';
-import { NativeProps, withNativeProps } from '@heathen/utils';
 import useCreation from 'ahooks/es/useCreation';
+import { NativeProps, withNativeProps } from '@heathen/utils';
 import { parseHtml } from './parsr-html';
 
 export type RichTextProps = {

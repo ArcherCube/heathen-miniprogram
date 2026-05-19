@@ -1,9 +1,9 @@
-import { createAbortablePromise, getBoundingClientRect, mergeProps } from '@heathen/utils';
 import { TaroElement } from '@tarojs/runtime';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import useSafeState from 'ahooks/es/useSafeState';
 import { useEffect, useRef, useState } from 'react';
+import { createAbortablePromise, getBoundingClientRect, mergeProps } from '@heathen/utils';
 import { AnimationFrame, doAnimation, parseAnimationFrameToStyle } from './animation';
 
 export type AnimationType = 'show' | 'close';

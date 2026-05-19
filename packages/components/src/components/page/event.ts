@@ -1,6 +1,6 @@
-import { EventBus } from '@heathen/utils';
 import { useMemoizedFn } from 'ahooks';
 import { useEffect } from 'react';
+import { EventBus } from '@heathen/utils';
 import { PageContextType } from './context';
 
 export enum PAGE_EVENT_TYPE {

@@ -1,4 +1,3 @@
-import { NativeProps, withNativeProps } from '@heathen/utils';
 import { ITouchEvent, Label, View } from '@tarojs/components';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import classNames from 'clsx';
@@ -8,11 +7,12 @@ import FieldContext from 'rc-field-form/lib/FieldContext';
 import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
 import type { FC, MutableRefObject, ReactNode } from 'react';
 import React, { useContext, useRef, useState } from 'react';
+import { NativeProps, withNativeProps } from '@heathen/utils';
 import { devWarning } from '../../utils/dev-log';
 import { Cell, type CellProps } from '../cell';
 import { FormContext, NoStyleItemContext } from './context';
-import type { FormLayout } from './index';
 import { isSafeSetRefComponent, toArray } from './utils';
+import type { FormLayout } from './index';
 
 const NAME_SPLIT = '__SPLIT__';
 

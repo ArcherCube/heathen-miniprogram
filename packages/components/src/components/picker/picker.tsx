@@ -1,9 +1,9 @@
 import { View } from '@tarojs/components';
-import { usePropsValue } from '@heathen/hooks';
-import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { useEffect, useState } from 'react';
+import { usePropsValue } from '@heathen/hooks';
+import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { Button } from '../button';
 import { Popup, PopupProps } from '../popup';
 import { PickerView, PickerViewProps } from './picker-view';

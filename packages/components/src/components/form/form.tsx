@@ -1,5 +1,3 @@
-import { usePropsValue } from '@heathen/hooks';
-import { mergeProps, NativeProps } from '@heathen/utils';
 import { Form as TaroForm, View } from '@tarojs/components';
 import { useMemoizedFn } from 'ahooks';
 import classNames from 'clsx';
@@ -7,6 +5,8 @@ import type { FormInstance as RCFormInstance, FormProps as RcFormProps } from 'r
 import RcForm from 'rc-field-form';
 import type { ForwardedRef, ReactNode } from 'react';
 import { forwardRef } from 'react';
+import { usePropsValue } from '@heathen/hooks';
+import { mergeProps, NativeProps } from '@heathen/utils';
 import { traverseReactNode } from '../../utils/traverse-react-node';
 import { defaultFormContext, FormContext, FormContextType } from './context';
 

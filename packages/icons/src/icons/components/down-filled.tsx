@@ -1,6 +1,6 @@
-import { Icon as SvgIcon } from './base/svg-icon';
-import { Icon as FontIcon } from './base/font-icon';
 import svgSource from '../../source/down-filled.svg';
+import { Icon as FontIcon } from './base/font-icon';
+import { Icon as SvgIcon } from './base/svg-icon';
 
 export type DownFilledProps = Partial<
   Omit<React.ComponentProps<typeof SvgIcon> & React.ComponentProps<typeof FontIcon>, 'type'>

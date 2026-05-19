@@ -1,5 +1,5 @@
-import { attachPropertiesToComponent } from '@heathen/utils';
 import { useForm, useWatch } from 'rc-field-form';
+import { attachPropertiesToComponent } from '@heathen/utils';
 import { Form as OriginForm } from './form';
 import { FormItem } from './form-item';
 import { FormSubscribe } from './form-subscribe';

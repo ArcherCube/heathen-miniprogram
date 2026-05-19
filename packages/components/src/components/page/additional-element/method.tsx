@@ -1,5 +1,5 @@
-import { generateUUID, getPageId, mergeProps } from '@heathen/utils';
 import React from 'react';
+import { generateUUID, getPageId, mergeProps } from '@heathen/utils';
 import { AdditionalElementManager } from './manager';
 
 export type Controller<P extends {} = {}> = {

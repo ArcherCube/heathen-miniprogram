@@ -1,8 +1,8 @@
-import { RightOutlined } from '@heathen/icons';
 import { View } from '@tarojs/components';
 import useCreation from 'ahooks/es/useCreation';
 import { clsx } from 'clsx';
 import { useContext } from 'react';
+import { RightOutlined } from '@heathen/icons';
 import CellGroupContext from './cell-group.context';
 import { CellBaseProps } from './cell.shared';
 

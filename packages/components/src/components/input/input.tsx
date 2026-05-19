@@ -1,6 +1,3 @@
-import { usePropsValue } from '@heathen/hooks';
-import { CrossOutlined } from '@heathen/icons';
-import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { type ITouchEvent, Input as TaroInput, View } from '@tarojs/components';
 import { BaseEventOrig } from '@tarojs/components/types/common';
 import { InputProps as TaroInputProps } from '@tarojs/components/types/Input';
@@ -8,6 +5,9 @@ import useCreation from 'ahooks/es/useCreation';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { clsx } from 'clsx';
 import { useState } from 'react';
+import { usePropsValue } from '@heathen/hooks';
+import { CrossOutlined } from '@heathen/icons';
+import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 
 export type InputAlign = 'left' | 'center' | 'right';
 

@@ -1,9 +1,9 @@
 import { View } from '@tarojs/components';
-import { useLayout } from '@heathen/hooks';
-import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { useMemoizedFn } from 'ahooks';
 import useCreation from 'ahooks/es/useCreation';
 import React, { useState } from 'react';
+import { useLayout } from '@heathen/hooks';
+import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { DynamicIsland, DynamicIslandProps } from '../dynamic-island';
 import { ScrollText } from '../scroll-text';
 

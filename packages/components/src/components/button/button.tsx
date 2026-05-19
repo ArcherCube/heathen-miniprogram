@@ -1,9 +1,9 @@
-import { LoadingOutlined } from '@heathen/icons';
-import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { ITouchEvent, Button as TaroButton, ButtonProps as TaroButtonProps, View } from '@tarojs/components';
 import useControllableValue from 'ahooks/es/useControllableValue';
 import useMemoizedFn from 'ahooks/es/useMemoizedFn';
 import { clsx } from 'clsx';
+import { LoadingOutlined } from '@heathen/icons';
+import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 
 export type ButtonProps = Omit<TaroButtonProps, 'type' | 'size' | 'plain' | 'onClick'> & {
   shape?: 'rounded' | 'square';

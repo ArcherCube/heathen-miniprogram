@@ -1,7 +1,7 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
-import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import classNames from 'clsx';
+import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 
 type SkeletonVariant = 'rect' | 'circle';
 

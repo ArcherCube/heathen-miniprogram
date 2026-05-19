@@ -1,9 +1,9 @@
-import { useLayout } from '@heathen/hooks';
-import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { View } from '@tarojs/components';
 import useCreation from 'ahooks/es/useCreation';
 import { clsx } from 'clsx';
 import isNil from 'lodash-es/isNil';
+import { useLayout } from '@heathen/hooks';
+import { mergeProps, NativeProps, withNativeProps } from '@heathen/utils';
 import { Layer, LayerProps } from '../layer';
 
 export type DynamicIslandProps = {

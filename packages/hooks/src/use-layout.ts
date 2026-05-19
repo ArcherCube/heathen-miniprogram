@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro';
-import { mergeProps } from '@heathen/utils';
 import { useLayoutEffect, useState } from 'react';
+import { mergeProps } from '@heathen/utils';
 
 type MenuRect = {
   width?: number;
