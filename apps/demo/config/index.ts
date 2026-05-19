@@ -1,5 +1,4 @@
 import { defineConfig, type UserConfigExport } from '@tarojs/cli';
-import { Config } from '@heathen/router-plugin';
 import path from 'path';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { UnifiedWebpackPluginV5 as WeappTailwindcssWebpackPlugin } from 'weapp-tailwindcss/webpack';
@@ -13,21 +12,7 @@ export default defineConfig(async (merge, env) => {
     projectName: 'heathen-miniprogram',
     sourceRoot: 'src',
     outputRoot: 'dist',
-    plugins: [
-      [
-        '@heathen/router-plugin',
-        {
-          ignore: ['components', '.DS_Store'],
-          defaultPage: 'pages/main/index/index',
-          packages: [
-            {
-              name: 'main',
-              pagePath: path.resolve(__dirname, '../src/pages/main'),
-            },
-          ],
-        } satisfies Config,
-      ],
-    ],
+    plugins: ['@heathenjs/taro-router-plugin'],
     defineConstants: {},
     copy: {
       patterns: [],

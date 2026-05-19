@@ -4,7 +4,7 @@
   "private": true,
   "description": "",
   "scripts": {
-    "postinstall": "weapp-tw patch",
+    "postinstall": "weapp-tw patch && taro-router-helper update",
     "build:weapp": "taro build --type weapp",
     "dev:weapp": "npm run build:weapp -- --watch",
     "lint": "eslint --ext .ts,.tsx  --max-warnings 0 \"src\" \"config\" ",
@@ -23,10 +23,11 @@
     "@heathen/hooks": "workspace:*",
     "@heathen/icons": "workspace:*",
     "@heathen/polyfill": "workspace:*",
-    "@heathen/router": "workspace:*",
-    "@heathen/utils": "workspace:*"
+    "@heathen/utils": "workspace:*",
+    "@heathenjs/taro-router": "1.1.5"
   },
   "devDependencies": {
-    "@heathen/router-plugin": "workspace:*"
+    "@heathenjs/taro-router-cli": "1.1.5",
+    "@heathenjs/taro-router-plugin": "1.1.5"
   }
 }

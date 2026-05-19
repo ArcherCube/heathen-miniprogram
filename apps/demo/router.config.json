@@ -1,0 +1,11 @@
+{
+  "ignore": ["components"],
+  "defaultPage": "pages/main/index/index",
+  "packages": [
+    {
+      "name": "default",
+      "pagePath": "./src/pages/main",
+      "isMainPackage": true
+    }
+  ]
+}

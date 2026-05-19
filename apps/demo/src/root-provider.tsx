@@ -1,6 +1,6 @@
 import { THEME_TYPE, THEME_TYPE_CONFIG, ThemeProvider } from '@/theme';
 import { ConfigProvider, ConfigProviderProps } from '@heathen/components';
-import Router from '@heathen/router';
+import Router from '@heathenjs/taro-router';
 import { useCreation } from 'ahooks';
 import React, { useState } from 'react';
 import { OSS_URL } from './constants/oss';
